@@ -21,32 +21,32 @@
                             <constraint firstAttribute="width" constant="60" id="oVA-ij-NM6"/>
                         </constraints>
                     </imageView>
-                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" text="Michael Moran" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="g2N-0A-1Uk">
-                        <rect key="frame" x="72" y="18" width="114.5" height="23.5"/>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="248" text="Michael Moran" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="g2N-0A-1Uk">
+                        <rect key="frame" x="72" y="18" width="115" height="24"/>
                         <fontDescription key="fontDescription" name="Avenir-Medium" family="Avenir" pointSize="17"/>
                         <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                         <nil key="highlightedColor"/>
                     </label>
-                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" verticalHuggingPriority="251" text="Label" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="3sE-0s-AxC">
-                        <rect key="frame" x="193" y="21" width="29.5" height="16.5"/>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" verticalHuggingPriority="249" text="Label" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="3sE-0s-AxC">
+                        <rect key="frame" x="193" y="21" width="30" height="17"/>
                         <fontDescription key="fontDescription" name="Avenir-Roman" family="Avenir" pointSize="12"/>
                         <color key="textColor" red="0.47604776069999999" green="0.43302370480000002" blue="0.48086144180000001" alpha="1" colorSpace="calibratedRGB"/>
                         <nil key="highlightedColor"/>
                     </label>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" horizontalCompressionResistancePriority="751" verticalCompressionResistancePriority="1000" text="Label" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="wel-mP-QCb">
-                        <rect key="frame" x="72" y="44" width="240" height="20.5"/>
+                        <rect key="frame" x="72" y="44" width="240" height="21"/>
                         <fontDescription key="fontDescription" name="Avenir-Roman" family="Avenir" pointSize="15"/>
                         <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                         <nil key="highlightedColor"/>
                     </label>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="8hr" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ujJ-6d-y8O">
-                        <rect key="frame" x="294" y="21" width="18" height="16.5"/>
+                        <rect key="frame" x="294" y="21" width="18" height="17"/>
                         <fontDescription key="fontDescription" name="Avenir-Roman" family="Avenir" pointSize="12"/>
                         <color key="textColor" red="0.47604776069999999" green="0.43302370480000002" blue="0.48086144180000001" alpha="1" colorSpace="calibratedRGB"/>
                         <nil key="highlightedColor"/>
                     </label>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="lu4-4g-ntM">
-                        <rect key="frame" x="8" y="3" width="28.5" height="13.5"/>
+                        <rect key="frame" x="8" y="3" width="29" height="14"/>
                         <fontDescription key="fontDescription" style="UICTFontTextStyleCaption1"/>
                         <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
                         <nil key="highlightedColor"/>
@@ -62,10 +62,10 @@
                         </state>
                     </button>
                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="J0o-rz-Olg">
-                        <rect key="frame" x="169" y="72" width="14" height="14"/>
+                        <rect key="frame" x="169" y="72" width="24" height="14"/>
                         <constraints>
                             <constraint firstAttribute="height" constant="14" id="ncG-Hv-bG3"/>
-                            <constraint firstAttribute="width" constant="14" id="rNz-c9-Nly"/>
+                            <constraint firstAttribute="width" constant="24" id="rNz-c9-Nly"/>
                         </constraints>
                         <state key="normal" image="retweet">
                             <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
@@ -113,7 +113,7 @@
                     <constraint firstItem="wel-mP-QCb" firstAttribute="top" secondItem="g2N-0A-1Uk" secondAttribute="bottom" constant="3.5" id="qfr-4n-4RH"/>
                     <constraint firstAttribute="trailing" secondItem="wel-mP-QCb" secondAttribute="trailing" constant="8" id="voO-fh-rez"/>
                     <constraint firstItem="wel-mP-QCb" firstAttribute="top" secondItem="g2N-0A-1Uk" secondAttribute="bottom" constant="3.5" id="xTk-BI-hbu"/>
-                    <constraint firstItem="c5m-Py-7Sp" firstAttribute="leading" secondItem="J0o-rz-Olg" secondAttribute="trailing" constant="89" id="yiN-Ue-Bkr"/>
+                    <constraint firstItem="c5m-Py-7Sp" firstAttribute="leading" secondItem="J0o-rz-Olg" secondAttribute="trailing" constant="79" id="yiN-Ue-Bkr"/>
                     <constraint firstItem="wel-mP-QCb" firstAttribute="top" secondItem="g2N-0A-1Uk" secondAttribute="bottom" constant="3.5" id="yos-mO-N8w"/>
                     <constraint firstItem="wel-mP-QCb" firstAttribute="top" secondItem="g2N-0A-1Uk" secondAttribute="bottom" constant="2.5" id="zyS-NR-rQh"/>
                 </constraints>
@@ -136,7 +136,10 @@
                 </variation>
             </tableViewCellContentView>
             <connections>
+                <outlet property="favoriteButton" destination="c5m-Py-7Sp" id="Ipd-zp-eKT"/>
                 <outlet property="nameLabel" destination="g2N-0A-1Uk" id="zoO-Ui-mXp"/>
+                <outlet property="replyButton" destination="veq-IZ-Uax" id="NbL-0E-yFs"/>
+                <outlet property="retweetButton" destination="J0o-rz-Olg" id="1OY-tE-BNx"/>
                 <outlet property="retweetedLabel" destination="lu4-4g-ntM" id="7ns-gZ-s7u"/>
                 <outlet property="screenName" destination="3sE-0s-AxC" id="0WV-5j-SPn"/>
                 <outlet property="timeLabel" destination="ujJ-6d-y8O" id="KxX-Yh-MVb"/>
@@ -149,6 +152,6 @@
     <resources>
         <image name="favorite" width="72" height="72"/>
         <image name="reply" width="70" height="58"/>
-        <image name="retweet" width="44" height="44"/>
+        <image name="retweet" width="40" height="32"/>
     </resources>
 </document>

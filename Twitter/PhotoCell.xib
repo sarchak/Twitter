@@ -2,6 +2,7 @@
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="6254" systemVersion="14C109" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6247"/>
+        <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
     </dependencies>
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
@@ -21,25 +22,25 @@
                         </constraints>
                     </imageView>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Name" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="qmq-X8-dB0">
-                        <rect key="frame" x="76" y="20" width="46.5" height="23.5"/>
+                        <rect key="frame" x="76" y="20" width="47" height="24"/>
                         <fontDescription key="fontDescription" name="Avenir-Medium" family="Avenir" pointSize="17"/>
                         <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                         <nil key="highlightedColor"/>
                     </label>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="3wD-MS-pD9">
-                        <rect key="frame" x="128" y="21" width="36.5" height="20.5"/>
+                        <rect key="frame" x="128" y="21" width="37" height="21"/>
                         <fontDescription key="fontDescription" name="Avenir-Roman" family="Avenir" pointSize="15"/>
                         <color key="textColor" red="0.79607843140000001" green="0.7725490196" blue="0.74117647060000003" alpha="1" colorSpace="calibratedRGB"/>
                         <nil key="highlightedColor"/>
                     </label>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hX2-cy-LuU">
-                        <rect key="frame" x="282" y="23" width="29.5" height="16.5"/>
+                        <rect key="frame" x="282" y="23" width="30" height="17"/>
                         <fontDescription key="fontDescription" name="Avenir-Roman" family="Avenir" pointSize="12"/>
                         <color key="textColor" red="0.47604776069999999" green="0.43302370480000002" blue="0.48086144180000001" alpha="1" colorSpace="calibratedRGB"/>
                         <nil key="highlightedColor"/>
                     </label>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="1000" horizontalCompressionResistancePriority="751" text="Label" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="AqY-ow-Pil">
-                        <rect key="frame" x="76" y="45" width="236" height="20.5"/>
+                        <rect key="frame" x="76" y="45" width="236" height="21"/>
                         <fontDescription key="fontDescription" name="Avenir-Roman" family="Avenir" pointSize="15"/>
                         <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                         <nil key="highlightedColor"/>
@@ -47,6 +48,7 @@
                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="Rjn-7C-EWW">
                         <rect key="frame" x="72" y="73" width="240" height="128"/>
                         <constraints>
+                            <constraint firstAttribute="width" secondItem="Rjn-7C-EWW" secondAttribute="height" multiplier="15:8" id="GVQ-Dw-Xyp"/>
                             <constraint firstAttribute="width" constant="240" id="x1W-Rr-U3k"/>
                             <constraint firstAttribute="height" constant="128" id="zAy-lX-31I"/>
                         </constraints>
@@ -64,9 +66,9 @@
                         </state>
                     </button>
                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="RAb-pV-NKh">
-                        <rect key="frame" x="170" y="211" width="14" height="14"/>
+                        <rect key="frame" x="170" y="211" width="24" height="14"/>
                         <constraints>
-                            <constraint firstAttribute="width" constant="14" id="4FT-85-trI"/>
+                            <constraint firstAttribute="width" constant="24" id="4FT-85-trI"/>
                             <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="14" id="5xv-Au-Z8g"/>
                             <constraint firstAttribute="height" constant="14" id="DNb-4O-P6B"/>
                             <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="14" id="pAl-YS-jbD"/>
@@ -88,7 +90,7 @@
                         </state>
                     </button>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="OSe-wd-O05">
-                        <rect key="frame" x="8" y="5" width="29.5" height="16.5"/>
+                        <rect key="frame" x="8" y="5" width="30" height="17"/>
                         <fontDescription key="fontDescription" name="Avenir-Roman" family="Avenir" pointSize="12"/>
                         <color key="textColor" red="0.47604776069999999" green="0.43302370480000002" blue="0.48086144180000001" alpha="1" colorSpace="calibratedRGB"/>
                         <nil key="highlightedColor"/>
@@ -106,7 +108,7 @@
                     <constraint firstItem="qmq-X8-dB0" firstAttribute="leading" secondItem="tKY-mh-8k4" secondAttribute="trailing" constant="8" id="Oja-gR-n2p"/>
                     <constraint firstItem="Rjn-7C-EWW" firstAttribute="leading" secondItem="tKY-mh-8k4" secondAttribute="trailing" constant="4" id="OlR-pC-5wL"/>
                     <constraint firstItem="wJ0-f0-o0l" firstAttribute="leading" secondItem="tKY-mh-8k4" secondAttribute="trailing" constant="4" id="ZQu-G9-Ky2"/>
-                    <constraint firstItem="MLV-cJ-Kuz" firstAttribute="leading" secondItem="RAb-pV-NKh" secondAttribute="trailing" constant="88" id="cV9-dj-qE2"/>
+                    <constraint firstItem="MLV-cJ-Kuz" firstAttribute="leading" secondItem="RAb-pV-NKh" secondAttribute="trailing" constant="78" id="cV9-dj-qE2"/>
                     <constraint firstItem="tKY-mh-8k4" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="8" id="dsF-1l-ChB"/>
                     <constraint firstItem="OSe-wd-O05" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="5" id="ff7-Na-GGL"/>
                     <constraint firstItem="qmq-X8-dB0" firstAttribute="centerY" secondItem="3wD-MS-pD9" secondAttribute="centerY" id="mXS-Gc-DUg"/>
@@ -122,8 +124,11 @@
                 </constraints>
             </tableViewCellContentView>
             <connections>
+                <outlet property="favoriteButton" destination="MLV-cJ-Kuz" id="lj7-Yu-QPc"/>
                 <outlet property="mediaImageView" destination="Rjn-7C-EWW" id="mO8-2H-94H"/>
                 <outlet property="nameLabel" destination="qmq-X8-dB0" id="z7V-cG-fAO"/>
+                <outlet property="replyButton" destination="wJ0-f0-o0l" id="QLX-0S-J3M"/>
+                <outlet property="retweetButton" destination="RAb-pV-NKh" id="MTF-Ur-FSF"/>
                 <outlet property="retweetedLabel" destination="OSe-wd-O05" id="LYD-aW-QNM"/>
                 <outlet property="screenName" destination="3wD-MS-pD9" id="ZbJ-LW-cIT"/>
                 <outlet property="timeLabel" destination="hX2-cy-LuU" id="fEf-iH-59A"/>
@@ -136,6 +141,6 @@
     <resources>
         <image name="favorite" width="72" height="72"/>
         <image name="reply" width="70" height="58"/>
-        <image name="retweet" width="44" height="44"/>
+        <image name="retweet" width="40" height="32"/>
     </resources>
 </document>

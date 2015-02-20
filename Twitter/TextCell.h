@@ -13,7 +13,10 @@
 @property (weak, nonatomic) IBOutlet UILabel *tweetLabel;
 @property (weak, nonatomic) IBOutlet UIImageView *userImageView;
 @property (weak, nonatomic) IBOutlet UILabel *retweetedLabel;
+@property (weak, nonatomic) IBOutlet UIButton *favoriteButton;
 
 @property (weak, nonatomic) IBOutlet UILabel *screenName;
+@property (weak, nonatomic) IBOutlet UIButton *replyButton;
+@property (weak, nonatomic) IBOutlet UIButton *retweetButton;
 @property (weak, nonatomic) IBOutlet UILabel *timeLabel;
 @end
