@@ -11,6 +11,8 @@
 #import "Tweet.h"
 #import "TwitterClient.h"
 #import "TextCell.h"
+#import "PhotoCell.h"
+
 #import "UIImageView+AFNetworking.h"
 #import "NSDate+DateTools.h"
 #import "SVProgressHUD.h"
@@ -29,9 +31,9 @@
     self.tableView.dataSource = self;
     self.tableView.delegate = self;
     [self.tableView registerNib:[UINib nibWithNibName:@"TextCell" bundle:nil] forCellReuseIdentifier:@"TextCell"];
-    
+    [self.tableView registerNib:[UINib nibWithNibName:@"PhotoCell" bundle:nil] forCellReuseIdentifier:@"PhotoCell"];
     self.tableView.rowHeight = UITableViewAutomaticDimension;
-    self.tableView.estimatedRowHeight = 85;
+    self.tableView.estimatedRowHeight = 250;
     
     self.refreshControl = [[UIRefreshControl alloc]init];
     [self.tableView addSubview:self.refreshControl];
@@ -74,21 +76,46 @@
 }
 
 -(void)viewDidAppear:(BOOL)animated{
-    [self.tableView reloadData];
+//    [self.tableView reloadData];
 }
 -(UITableViewCell*) tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
-    TextCell *cell = [tableView dequeueReusableCellWithIdentifier:@"TextCell"];
+    
+    UITableViewCell *cell = nil;
+    
+    
     
     Tweet *tweet = self.tweets[indexPath.row];
-    cell.nameLabel.text = tweet.user.name;
-    cell.tweetLabel.text = tweet.text;
-    
+    if(tweet.media != nil){
+        PhotoCell *pcell = [tableView dequeueReusableCellWithIdentifier:@"PhotoCell"];
+        [pcell.mediaImageView setImageWithURL:[NSURL URLWithString:tweet.media.mediaUrl]];
+        pcell.nameLabel.text = tweet.user.name;
+        pcell.tweetLabel.text = tweet.text;
+        
+        
+        NSString *biggerImageUrl = [tweet.user.profileImageUrl stringByReplacingOccurrencesOfString:@"_normal" withString:@"_bigger"];
+        [pcell.userImageView setImageWithURL:[NSURL URLWithString:biggerImageUrl]];
+        
+        pcell.screenName.text = [NSString stringWithFormat:@"@%@",tweet.user.screenName];
+        pcell.timeLabel.text = tweet.createdAt.shortTimeAgoSinceNow;
+        cell = pcell;
+        
+        cell = pcell;
+    } else{
+        TextCell *tcell = [tableView dequeueReusableCellWithIdentifier:@"TextCell"];
+        tcell = tcell;
+        tcell.nameLabel.text = tweet.user.name;
+        tcell.tweetLabel.text = tweet.text;
+        
+        
+        NSString *biggerImageUrl = [tweet.user.profileImageUrl stringByReplacingOccurrencesOfString:@"_normal" withString:@"_bigger"];
+        [tcell.userImageView setImageWithURL:[NSURL URLWithString:biggerImageUrl]];
+        
+        tcell.screenName.text = [NSString stringWithFormat:@"@%@",tweet.user.screenName];
+        tcell.timeLabel.text = tweet.createdAt.shortTimeAgoSinceNow;
+        cell = tcell;
+    }
 
-    NSString *biggerImageUrl = [tweet.user.profileImageUrl stringByReplacingOccurrencesOfString:@"_normal" withString:@"_bigger"];
-    [cell.userImageView setImageWithURL:[NSURL URLWithString:biggerImageUrl]];
     
-    cell.screenName.text = [NSString stringWithFormat:@"@%@",tweet.user.screenName];
-    cell.timeLabel.text = tweet.createdAt.shortTimeAgoSinceNow;
     return cell;
 }
 

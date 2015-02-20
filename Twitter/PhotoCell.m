@@ -11,7 +11,10 @@
 @implementation PhotoCell
 
 - (void)awakeFromNib {
-    // Initialization code
+    self.tweetLabel.preferredMaxLayoutWidth =  self.tweetLabel.frame.size.width;
+    self.userImageView.layer.cornerRadius = 5.0;
+    self.retweetedLabel.hidden = YES;
+
 }
 
 - (void)setSelected:(BOOL)selected animated:(BOOL)animated {
