@@ -13,6 +13,7 @@
 - (void)awakeFromNib {
     self.tweetLabel.preferredMaxLayoutWidth =  self.tweetLabel.frame.size.width;
     self.userImageView.layer.cornerRadius = 5.0;
+    self.mediaImageView.layer.cornerRadius = 5.0;
     self.retweetedLabel.hidden = YES;
 
 }
