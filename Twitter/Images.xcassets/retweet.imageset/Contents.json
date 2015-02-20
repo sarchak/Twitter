@@ -8,12 +8,12 @@
     {
       "idiom" : "universal",
       "scale" : "2x",
-      "filename" : "retweet-1.png"
+      "filename" : "retweet@2x.png"
     },
     {
       "idiom" : "universal",
       "scale" : "3x",
-      "filename" : "retweet-2.png"
+      "filename" : "retweet@3x.png"
     }
   ],
   "info" : {

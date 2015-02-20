@@ -71,6 +71,7 @@ NSString *const baseUrl = @"https://api.twitter.com";
             completion(tweets, nil);
         } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
             completion(nil,error);
+            NSLog(@"Failed to fetch timeline %@" , error);
         }];
 }
 

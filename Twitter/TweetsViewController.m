@@ -13,10 +13,11 @@
 #import "TextCell.h"
 #import "UIImageView+AFNetworking.h"
 #import "NSDate+DateTools.h"
+#import "SVProgressHUD.h"
 
 @interface TweetsViewController ()
 @property (weak, nonatomic) IBOutlet UITableView *tableView;
-
+@property (strong, nonatomic) UIRefreshControl *refreshControl;
 @property (nonatomic,strong) NSArray *tweets;
 @end
 
@@ -30,37 +31,51 @@
     [self.tableView registerNib:[UINib nibWithNibName:@"TextCell" bundle:nil] forCellReuseIdentifier:@"TextCell"];
     
     self.tableView.rowHeight = UITableViewAutomaticDimension;
-    self.tableView.estimatedRowHeight = 90;
+    self.tableView.estimatedRowHeight = 85;
     
+    self.refreshControl = [[UIRefreshControl alloc]init];
+    [self.tableView addSubview:self.refreshControl];
+    [self.refreshControl addTarget:self action:@selector(refreshTable) forControlEvents:UIControlEventValueChanged];
+
+//    [SVProgressHUD setBackgroundColor:[UIColor colorWithRed:8.0/255 green:10.0/255 blue:15.0/255 alpha:1]];
+    [SVProgressHUD setForegroundColor: [UIColor colorWithRed:85.0/255 green:172.0/255 blue:238.0/255 alpha:1.0]];
+    [SVProgressHUD show];
+
+    
+    [self fetchData];
+    
+}
+
+-(void) fetchData {
     NSDictionary *dictionary = [[NSDictionary alloc] initWithObjectsAndKeys:[NSNumber numberWithInt:200], @"count", [NSNumber numberWithBool:YES], @"include_entities",nil];
     [[TwitterClient sharedInstance] homeTimelineWithParams:dictionary completion:^(NSArray *tweets, NSError *error) {
+        [self.refreshControl endRefreshing];
+        [SVProgressHUD dismiss];
         if(tweets != nil){
             self.tweets = tweets;
-            for(Tweet *tweet in tweets){
-                if(tweet.media != nil){
-                    NSLog(@" Tweet : %@   Media url : %@", tweet.text,tweet.media.mediaUrl);
-                    
-                }
-            }
             [self.tableView reloadData];
         }
     }];
+
+}
+
+-(void) refreshTable {
+    [self fetchData];
 }
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
 }
-//
-//- (IBAction)logOut:(id)sender {
-//    [User logOut];
-//}
 
 -(NSInteger) tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
     return self.tweets.count;
     
 }
 
+-(void)viewDidAppear:(BOOL)animated{
+    [self.tableView reloadData];
+}
 -(UITableViewCell*) tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     TextCell *cell = [tableView dequeueReusableCellWithIdentifier:@"TextCell"];
     

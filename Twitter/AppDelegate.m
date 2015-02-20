@@ -24,14 +24,24 @@
     // Override point for customization after application launch.
     self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
     
+    LoginViewController *lvc = [[LoginViewController alloc] init];
+    TweetsViewController *tvc = [[TweetsViewController alloc] init];
+    UINavigationController *nvc = nil;
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(userDidLogout) name:UserDidLogoutNotification object:nil];
     if ([User currentUser] != nil){
-        self.window.rootViewController= [[TweetsViewController alloc] init];
+        nvc = [[UINavigationController alloc] initWithRootViewController:tvc];
     } else {
-        self.window.rootViewController= [[LoginViewController alloc] init];
+        nvc = [[UINavigationController alloc] initWithRootViewController:lvc];
     }
 
+    UINavigationBar *navBar = [UINavigationBar appearance];
+    [navBar setBarTintColor:[UIColor colorWithRed:85.0/255 green:172.0/255 blue:238.0/255 alpha:1.0]];
+//    [navBar setTitleTextAttributes:@{NSForegroundColorAttributeName : [UIColor colorWithRed:1.0 green:206.0/255 blue:112.0/255 alpha:1.0]}];
     
+    [navBar setTintColor:[UIColor colorWithRed:85.0/255 green:172.0/255 blue:238.0/255 alpha:1.0]];
+
+    
+    self.window.rootViewController = nvc;
     [self.window makeKeyAndVisible];
     return YES;
 }
