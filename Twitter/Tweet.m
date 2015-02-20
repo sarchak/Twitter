@@ -14,15 +14,24 @@
     self = [super init];
     
     if (self) {
-        self.text = dictionary[@"text"];
-        self.user = [[User alloc] initWithDictionary:dictionary[@"user"]];
-        NSString *createdAtString = dictionary[@"created_at"];
+        NSDictionary* tempdictionary = nil;
+        if(dictionary[@"retweeted_status"]!=nil){
+            self.retweetedBy = [[User alloc] initWithDictionary:dictionary[@"user"]];
+            tempdictionary = dictionary[@"retweeted_status"];
+        } else {
+            tempdictionary = dictionary;
+        }
+        
+        self.text = tempdictionary[@"text"];
+        self.user = [[User alloc] initWithDictionary:tempdictionary[@"user"]];
+        NSString *createdAtString = tempdictionary[@"created_at"];
         NSDateFormatter *formatter = [[NSDateFormatter alloc] init];
         formatter.dateFormat = @"EEE MMM d HH:mm:ss Z y";
         self.createdAt = [formatter dateFromString:createdAtString];
-        self.retweetCount = [[dictionary objectForKey:@"retweet_count"] integerValue];
-        self.favoritesCount = [[dictionary objectForKey:@"favorites_count"] integerValue];
-        NSArray *currentMedia = [dictionary valueForKeyPath:@"entities.media"];
+        self.retweetCount = [[tempdictionary objectForKey:@"retweet_count"] integerValue];
+        self.favoritesCount = [[tempdictionary objectForKey:@"favorite_count"] integerValue];
+        NSLog(@"Favorites count :%ld", self.favoritesCount);
+        NSArray *currentMedia = [tempdictionary valueForKeyPath:@"entities.media"];
         if(currentMedia != nil){
             self.media = [[Media alloc] initWithDictionary:currentMedia];
         }

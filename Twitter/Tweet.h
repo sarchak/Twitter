@@ -19,6 +19,7 @@
 @property (nonatomic, strong) NSArray *atMentions;
 @property (nonatomic, strong) Media *media;
 @property (nonatomic, strong) User *user;
+@property (nonatomic, strong) User *retweetedBy;
 
 -(id) initWithDictionary:(NSDictionary*) dictionary;
 +(NSArray *) tweetsFromArray:(NSArray*) dictionaries;

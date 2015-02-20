@@ -26,8 +26,8 @@
                         <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                         <nil key="highlightedColor"/>
                     </label>
-                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" text="Label" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="3wD-MS-pD9">
-                        <rect key="frame" x="128" y="21" width="36.5" height="20.5"/>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="249" text="Label" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="3wD-MS-pD9">
+                        <rect key="frame" x="126" y="21" width="38" height="20.5"/>
                         <fontDescription key="fontDescription" name="Avenir-Roman" family="Avenir" pointSize="15"/>
                         <color key="textColor" red="0.79607843140000001" green="0.7725490196" blue="0.74117647060000003" alpha="1" colorSpace="calibratedRGB"/>
                         <nil key="highlightedColor"/>
@@ -39,7 +39,7 @@
                         <nil key="highlightedColor"/>
                     </label>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" verticalHuggingPriority="251" verticalCompressionResistancePriority="751" text="Label" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="AqY-ow-Pil">
-                        <rect key="frame" x="76" y="46" width="236" height="20.5"/>
+                        <rect key="frame" x="76" y="45" width="236" height="20.5"/>
                         <fontDescription key="fontDescription" name="Avenir-Roman" family="Avenir" pointSize="15"/>
                         <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                         <nil key="highlightedColor"/>
@@ -82,43 +82,71 @@
                         </state>
                     </button>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="OSe-wd-O05">
-                        <rect key="frame" x="8" y="3" width="29.5" height="16.5"/>
+                        <rect key="frame" x="76" y="3" width="29.5" height="16.5"/>
                         <fontDescription key="fontDescription" name="Avenir-Roman" family="Avenir" pointSize="12"/>
                         <color key="textColor" red="0.47604776069999999" green="0.43302370480000002" blue="0.48086144180000001" alpha="1" colorSpace="calibratedRGB"/>
                         <nil key="highlightedColor"/>
                     </label>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="JYx-nU-03x">
+                        <rect key="frame" x="195" y="212" width="28.5" height="13.5"/>
+                        <fontDescription key="fontDescription" style="UICTFontTextStyleCaption1"/>
+                        <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Ox0-js-qBI">
+                        <rect key="frame" x="287" y="212" width="28.5" height="13.5"/>
+                        <fontDescription key="fontDescription" style="UICTFontTextStyleCaption1"/>
+                        <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="retweet_on" translatesAutoresizingMaskIntoConstraints="NO" id="zz8-Cb-RMJ">
+                        <rect key="frame" x="50" y="6" width="18" height="14"/>
+                        <constraints>
+                            <constraint firstAttribute="width" constant="18" id="CQ8-fp-vBg"/>
+                            <constraint firstAttribute="height" constant="14" id="R4Y-hv-14T"/>
+                        </constraints>
+                    </imageView>
                 </subviews>
                 <constraints>
                     <constraint firstAttribute="bottom" secondItem="wJ0-f0-o0l" secondAttribute="bottom" constant="6.5" id="1N3-mZ-dqm"/>
                     <constraint firstItem="qmq-X8-dB0" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="20" id="1jO-pm-sAE"/>
+                    <constraint firstItem="JYx-nU-03x" firstAttribute="leading" secondItem="RAb-pV-NKh" secondAttribute="trailing" constant="1" id="2oK-Kc-CaY"/>
                     <constraint firstAttribute="trailing" secondItem="AqY-ow-Pil" secondAttribute="trailing" constant="8" id="7J0-RR-CER"/>
-                    <constraint firstItem="AqY-ow-Pil" firstAttribute="top" secondItem="qmq-X8-dB0" secondAttribute="bottom" constant="2.5" id="8B2-HP-BSh"/>
+                    <constraint firstItem="RAb-pV-NKh" firstAttribute="centerY" secondItem="JYx-nU-03x" secondAttribute="centerY" id="7Ra-sM-3PG"/>
+                    <constraint firstItem="AqY-ow-Pil" firstAttribute="top" secondItem="qmq-X8-dB0" secondAttribute="bottom" constant="1" id="8B2-HP-BSh"/>
                     <constraint firstItem="hX2-cy-LuU" firstAttribute="leading" relation="lessThanOrEqual" secondItem="3wD-MS-pD9" secondAttribute="trailing" constant="118" id="8fG-pT-s3B"/>
-                    <constraint firstItem="3wD-MS-pD9" firstAttribute="leading" secondItem="qmq-X8-dB0" secondAttribute="trailing" constant="5.5" id="B3C-Cx-keM"/>
+                    <constraint firstItem="3wD-MS-pD9" firstAttribute="leading" secondItem="qmq-X8-dB0" secondAttribute="trailing" constant="4" id="B3C-Cx-keM"/>
                     <constraint firstItem="hX2-cy-LuU" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="23" id="Eyh-2w-x4S"/>
                     <constraint firstItem="MLV-cJ-Kuz" firstAttribute="leading" secondItem="RAb-pV-NKh" secondAttribute="trailing" constant="78" id="Hmb-Gm-JUx"/>
                     <constraint firstItem="Rjn-7C-EWW" firstAttribute="leading" secondItem="tKY-mh-8k4" secondAttribute="trailing" constant="4" id="ITJ-KE-ger"/>
                     <constraint firstItem="qmq-X8-dB0" firstAttribute="centerY" secondItem="3wD-MS-pD9" secondAttribute="centerY" id="IXr-ag-NwB"/>
                     <constraint firstItem="wJ0-f0-o0l" firstAttribute="leading" secondItem="tKY-mh-8k4" secondAttribute="trailing" constant="5" id="K6G-Fv-wcS"/>
                     <constraint firstItem="tKY-mh-8k4" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="8" id="Kbk-Eg-oRj"/>
+                    <constraint firstItem="zz8-Cb-RMJ" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="6" id="Kl2-4D-Dkl"/>
+                    <constraint firstItem="Ox0-js-qBI" firstAttribute="leading" secondItem="MLV-cJ-Kuz" secondAttribute="trailing" constant="1" id="LBp-Bv-vbC"/>
                     <constraint firstItem="AqY-ow-Pil" firstAttribute="leading" secondItem="tKY-mh-8k4" secondAttribute="trailing" constant="8" id="PoE-Z6-0PE"/>
                     <constraint firstItem="Rjn-7C-EWW" firstAttribute="top" relation="greaterThanOrEqual" secondItem="AqY-ow-Pil" secondAttribute="bottom" constant="6" id="W1D-6z-9f8"/>
                     <constraint firstAttribute="trailing" secondItem="hX2-cy-LuU" secondAttribute="trailing" constant="8" id="XTT-x2-eet"/>
-                    <constraint firstItem="OSe-wd-O05" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="8" id="XfL-M9-cyt"/>
+                    <constraint firstItem="OSe-wd-O05" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="76" id="XfL-M9-cyt"/>
                     <constraint firstItem="wJ0-f0-o0l" firstAttribute="top" secondItem="Rjn-7C-EWW" secondAttribute="bottom" constant="11" id="ajq-yp-gvw"/>
                     <constraint firstItem="RAb-pV-NKh" firstAttribute="centerY" secondItem="wJ0-f0-o0l" secondAttribute="centerY" id="c3X-Dm-E8n"/>
                     <constraint firstItem="qmq-X8-dB0" firstAttribute="leading" secondItem="tKY-mh-8k4" secondAttribute="trailing" constant="8" id="cgQ-Kr-CiT"/>
                     <constraint firstItem="OSe-wd-O05" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="3" id="cuW-MZ-pa1"/>
                     <constraint firstItem="RAb-pV-NKh" firstAttribute="leading" secondItem="wJ0-f0-o0l" secondAttribute="trailing" constant="83" id="dAO-Mj-XvD"/>
+                    <constraint firstItem="zz8-Cb-RMJ" firstAttribute="trailing" secondItem="tKY-mh-8k4" secondAttribute="trailing" id="e1i-Bx-Ixi"/>
                     <constraint firstItem="RAb-pV-NKh" firstAttribute="centerY" secondItem="MLV-cJ-Kuz" secondAttribute="centerY" id="ka2-ve-Tb5"/>
-                    <constraint firstItem="tKY-mh-8k4" firstAttribute="top" secondItem="OSe-wd-O05" secondAttribute="bottom" constant="3" id="tZP-sX-1dM"/>
+                    <constraint firstItem="MLV-cJ-Kuz" firstAttribute="centerY" secondItem="Ox0-js-qBI" secondAttribute="centerY" id="mqA-9A-HrK"/>
+                    <constraint firstItem="tKY-mh-8k4" firstAttribute="top" secondItem="OSe-wd-O05" secondAttribute="bottom" constant="2" id="tZP-sX-1dM"/>
                 </constraints>
             </tableViewCellContentView>
             <connections>
                 <outlet property="favoriteButton" destination="MLV-cJ-Kuz" id="lj7-Yu-QPc"/>
+                <outlet property="fcount" destination="Ox0-js-qBI" id="nXG-ix-mKG"/>
                 <outlet property="mediaImageView" destination="Rjn-7C-EWW" id="mO8-2H-94H"/>
                 <outlet property="nameLabel" destination="qmq-X8-dB0" id="z7V-cG-fAO"/>
+                <outlet property="rcount" destination="JYx-nU-03x" id="bw8-Xr-Ieg"/>
                 <outlet property="replyButton" destination="wJ0-f0-o0l" id="QLX-0S-J3M"/>
+                <outlet property="retweet" destination="zz8-Cb-RMJ" id="SXm-IY-b5k"/>
                 <outlet property="retweetButton" destination="RAb-pV-NKh" id="MTF-Ur-FSF"/>
                 <outlet property="retweetedLabel" destination="OSe-wd-O05" id="LYD-aW-QNM"/>
                 <outlet property="screenName" destination="3wD-MS-pD9" id="ZbJ-LW-cIT"/>
@@ -133,5 +161,6 @@
         <image name="favorite" width="72" height="72"/>
         <image name="reply" width="70" height="58"/>
         <image name="retweet" width="40" height="32"/>
+        <image name="retweet_on" width="40" height="32"/>
     </resources>
 </document>

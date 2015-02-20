@@ -94,29 +94,47 @@
     
     Tweet *tweet = self.tweets[indexPath.row];
     if(tweet.media != nil){
+        
         PhotoCell *pcell = [tableView dequeueReusableCellWithIdentifier:@"PhotoCell"];
+        pcell.retweetedLabel.hidden = YES;
+        pcell.retweet.hidden = YES;
         [pcell.mediaImageView setImageWithURL:[NSURL URLWithString:tweet.media.mediaUrl]];
         pcell.nameLabel.text = tweet.user.name;
         pcell.tweetLabel.text = tweet.text;
         
+
+        if(tweet.retweetedBy != nil){
+            pcell.retweetedLabel.text = [NSString stringWithFormat:@"%@ retweeted", tweet.retweetedBy.name];
+            pcell.retweetedLabel.hidden = NO;
+            pcell.retweet.hidden = NO;
+        }
         
         NSString *biggerImageUrl = [tweet.user.profileImageUrl stringByReplacingOccurrencesOfString:@"_normal" withString:@"_bigger"];
         [pcell.userImageView setImageWithURL:[NSURL URLWithString:biggerImageUrl]];
         
         pcell.screenName.text = [NSString stringWithFormat:@"@%@",tweet.user.screenName];
         pcell.timeLabel.text = tweet.createdAt.shortTimeAgoSinceNow;
-        cell = pcell;
-        
+        pcell.rcount.text = [NSString stringWithFormat:@"%ld", tweet.retweetCount];
+        pcell.fcount.text = [NSString stringWithFormat:@"%ld", tweet.favoritesCount];
         cell = pcell;
     } else{
         TextCell *tcell = [tableView dequeueReusableCellWithIdentifier:@"TextCell"];
+        tcell.retweetedLabel.hidden = YES;
+        tcell.retweet.hidden = YES;
+        
         tcell = tcell;
         tcell.nameLabel.text = tweet.user.name;
         tcell.tweetLabel.text = tweet.text;
-        
+        if(tweet.retweetedBy != nil){
+            tcell.retweetedLabel.text = [NSString stringWithFormat:@"%@ retweeted", tweet.retweetedBy.name];
+            tcell.retweetedLabel.hidden = NO;
+            tcell.retweet.hidden = NO;
+        }
         
         NSString *biggerImageUrl = [tweet.user.profileImageUrl stringByReplacingOccurrencesOfString:@"_normal" withString:@"_bigger"];
         [tcell.userImageView setImageWithURL:[NSURL URLWithString:biggerImageUrl]];
+        tcell.rcount.text = [NSString stringWithFormat:@"%ld", tweet.retweetCount];
+        tcell.fcount.text = [NSString stringWithFormat:@"%ld", tweet.favoritesCount];
         
         tcell.screenName.text = [NSString stringWithFormat:@"@%@",tweet.user.screenName];
         tcell.timeLabel.text = tweet.createdAt.shortTimeAgoSinceNow;
