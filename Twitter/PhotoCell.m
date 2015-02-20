@@ -21,7 +21,19 @@
 - (void)setSelected:(BOOL)selected animated:(BOOL)animated {
     [super setSelected:selected animated:animated];
 
-    // Configure the view for the selected state
+    
 }
+
+
+- (IBAction)reply:(id)sender {
+    [self.delegate photoCell:self reply:sender];
+}
+- (IBAction)retweet:(id)sender {
+    [self.delegate photoCell:self retweet:sender];
+}
+- (IBAction)favorite:(id)sender {
+    [self.delegate photoCell:self favorite:sender];
+}
+
 
 @end

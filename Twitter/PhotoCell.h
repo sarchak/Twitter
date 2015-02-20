@@ -7,6 +7,14 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "Tweet.h"
+@class PhotoCell;
+
+@protocol PhotoCellDelegate <NSObject>
+-(void) photoCell:(PhotoCell*) photoCell  favorite: (UIButton*) button;
+-(void) photoCell:(PhotoCell*) photoCell  retweet: (UIButton*) button;
+-(void) photoCell:(PhotoCell*) photoCell  reply: (UIButton*) button;
+@end
 
 @interface PhotoCell : UITableViewCell
 @property (weak, nonatomic) IBOutlet UILabel *nameLabel;
@@ -24,4 +32,5 @@
 @property (weak, nonatomic) IBOutlet UIButton *retweetButton;
 @property (weak, nonatomic) IBOutlet UIButton *favoriteButton;
 
+@property (weak,nonatomic) id<PhotoCellDelegate> delegate;
 @end

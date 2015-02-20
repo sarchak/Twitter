@@ -8,6 +8,15 @@
 
 #import <UIKit/UIKit.h>
 
+@class TextCell;
+
+@protocol TextCellDelegate <NSObject>
+-(void) textCell:(TextCell*) textCell  favorite: (UIButton*) button;
+-(void) textCell:(TextCell*) textCell  retweet: (UIButton*) button;
+-(void) textCell:(TextCell*) textCell  reply: (UIButton*) button;
+@end
+
+
 @interface TextCell : UITableViewCell
 @property (weak, nonatomic) IBOutlet UILabel *nameLabel;
 @property (weak, nonatomic) IBOutlet UILabel *tweetLabel;
@@ -22,4 +31,6 @@
 @property (weak, nonatomic) IBOutlet UIButton *replyButton;
 @property (weak, nonatomic) IBOutlet UIButton *retweetButton;
 @property (weak, nonatomic) IBOutlet UILabel *timeLabel;
+
+@property (weak, nonatomic) id<TextCellDelegate> delegate;
 @end

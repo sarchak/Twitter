@@ -17,7 +17,7 @@
 #import "UIImageView+AFNetworking.h"
 #import "NSDate+DateTools.h"
 #import "SVProgressHUD.h"
-
+#import <POP/POP.h>
 @interface TweetsViewController ()
 @property (weak, nonatomic) IBOutlet UITableView *tableView;
 @property (strong, nonatomic) UIRefreshControl *refreshControl;
@@ -98,6 +98,8 @@
         PhotoCell *pcell = [tableView dequeueReusableCellWithIdentifier:@"PhotoCell"];
         pcell.retweetedLabel.hidden = YES;
         pcell.retweet.hidden = YES;
+        pcell.retweetButton.imageView.image = [UIImage imageNamed:@"retweet"];
+        pcell.favoriteButton.imageView.image = [UIImage imageNamed:@"favorite"];
         [pcell.mediaImageView setImageWithURL:[NSURL URLWithString:tweet.media.mediaUrl]];
         pcell.nameLabel.text = tweet.user.name;
         pcell.tweetLabel.text = tweet.text;
@@ -116,11 +118,23 @@
         pcell.timeLabel.text = tweet.createdAt.shortTimeAgoSinceNow;
         pcell.rcount.text = [NSString stringWithFormat:@"%ld", tweet.retweetCount];
         pcell.fcount.text = [NSString stringWithFormat:@"%ld", tweet.favoritesCount];
+        if(tweet.retweeted){
+            pcell.retweetButton.imageView.image = [UIImage imageNamed:@"retweet_on"];
+        }
+        if(tweet.favorited){
+            pcell.favoriteButton.imageView.image = [UIImage imageNamed:@"favorite_on"];
+        }
+
+        pcell.delegate = self;
+    
         cell = pcell;
     } else{
         TextCell *tcell = [tableView dequeueReusableCellWithIdentifier:@"TextCell"];
+        tcell.delegate = self;
         tcell.retweetedLabel.hidden = YES;
         tcell.retweet.hidden = YES;
+        tcell.retweetButton.imageView.image = [UIImage imageNamed:@"retweet"];
+        tcell.favoriteButton.imageView.image = [UIImage imageNamed:@"favorite"];
         
         tcell = tcell;
         tcell.nameLabel.text = tweet.user.name;
@@ -130,7 +144,15 @@
             tcell.retweetedLabel.hidden = NO;
             tcell.retweet.hidden = NO;
         }
+
+        if(tweet.retweeted){
+            tcell.retweetButton.imageView.image = [UIImage imageNamed:@"retweet_on"];
+        }
+        if(tweet.favorited){
+            tcell.favoriteButton.imageView.image = [UIImage imageNamed:@"favorite_on"];
+        }
         
+
         NSString *biggerImageUrl = [tweet.user.profileImageUrl stringByReplacingOccurrencesOfString:@"_normal" withString:@"_bigger"];
         [tcell.userImageView setImageWithURL:[NSURL URLWithString:biggerImageUrl]];
         tcell.rcount.text = [NSString stringWithFormat:@"%ld", tweet.retweetCount];
@@ -138,6 +160,7 @@
         
         tcell.screenName.text = [NSString stringWithFormat:@"@%@",tweet.user.screenName];
         tcell.timeLabel.text = tweet.createdAt.shortTimeAgoSinceNow;
+
         cell = tcell;
     }
 
@@ -151,4 +174,159 @@
     dvc.tweet = tweet;
     [self.navigationController pushViewController:dvc animated:YES];
 }
+
+
+-(void) togglePhotoCell:(Tweet*) tweet forCell: (PhotoCell*)cell type: (NSString*) type {
+    
+    if([type isEqual: @"retweet"]){
+        if(tweet.retweeted){
+            [cell.retweetButton setImage:[UIImage imageNamed:@"retweet"] forState:UIControlStateNormal];
+            tweet.retweetCount = tweet.retweetCount - 1;
+        } else {
+            [cell.retweetButton setImage:[UIImage imageNamed:@"retweet_on"] forState:UIControlStateNormal];
+            tweet.retweetCount = tweet.retweetCount + 1;
+        }
+        tweet.retweeted  = !tweet.retweeted;
+
+        cell.rcount.text =[NSString stringWithFormat:@"%ld", tweet.retweetCount];
+    }
+    if([type isEqual: @"favorite"]){
+        if(tweet.favorited){
+
+            tweet.favoritesCount = tweet.favoritesCount - 1;
+            cell.favoriteButton.alpha = 0;
+            [UIView animateWithDuration:0.3 animations:^{
+                cell.favoriteButton.alpha = 1;
+                [cell.favoriteButton setImage:[UIImage imageNamed:@"favorite_animated"] forState:UIControlStateNormal];
+                POPSpringAnimation *scaleAnimation = [POPSpringAnimation animationWithPropertyNamed:kPOPLayerScaleXY];
+                scaleAnimation.toValue = [NSValue valueWithCGSize:CGSizeMake(2, 2)];
+                scaleAnimation.springBounciness = 10.f;
+                [cell.favoriteButton.layer pop_addAnimation:scaleAnimation forKey:@"scaleAnim"];
+            } completion:^(BOOL finished) {
+                POPSpringAnimation *scaleAnimation = [POPSpringAnimation animationWithPropertyNamed:kPOPLayerScaleXY];
+                scaleAnimation.toValue = [NSValue valueWithCGSize:CGSizeMake(1.0, 1.0)];
+                scaleAnimation.springBounciness = 10.f;
+                [cell.favoriteButton.layer pop_addAnimation:scaleAnimation forKey:@"scaleAnim"];
+                [cell.favoriteButton setImage:[UIImage imageNamed:@"favorite"] forState:UIControlStateNormal];
+            }];
+        } else {
+            cell.favoriteButton.alpha = 0;
+            [UIView animateWithDuration:0.3 animations:^{
+                cell.favoriteButton.alpha = 1;
+                [cell.favoriteButton setImage:[UIImage imageNamed:@"favorite_animated"] forState:UIControlStateNormal];
+                POPSpringAnimation *scaleAnimation = [POPSpringAnimation animationWithPropertyNamed:kPOPLayerScaleXY];
+                scaleAnimation.toValue = [NSValue valueWithCGSize:CGSizeMake(2, 2)];
+                scaleAnimation.springBounciness = 10.f;
+                [cell.favoriteButton.layer pop_addAnimation:scaleAnimation forKey:@"scaleAnim"];
+            } completion:^(BOOL finished) {
+                
+                POPSpringAnimation *scaleAnimation = [POPSpringAnimation animationWithPropertyNamed:kPOPLayerScaleXY];
+                scaleAnimation.toValue = [NSValue valueWithCGSize:CGSizeMake(1.0, 1.0)];
+                scaleAnimation.springBounciness = 10.f;
+                [cell.favoriteButton.layer pop_addAnimation:scaleAnimation forKey:@"scaleAnim"];
+                [cell.favoriteButton setImage:[UIImage imageNamed:@"favorite_on"] forState:UIControlStateNormal];
+            }];
+            
+            tweet.favoritesCount = tweet.favoritesCount + 1;
+        }
+        tweet.favorited = !tweet.favorited;
+        cell.fcount.text = [NSString stringWithFormat:@"%ld", tweet.favoritesCount];
+    }
+}
+
+-(void) toggleTextCell:(Tweet*) tweet forCell: (TextCell*)cell type: (NSString*) type {
+    
+    if([type isEqual: @"retweet"]){
+        if(tweet.retweeted){
+            [cell.retweetButton setImage:[UIImage imageNamed:@"retweet"] forState:UIControlStateNormal];
+            tweet.retweetCount = tweet.retweetCount - 1;
+        } else {
+            [cell.retweetButton setImage:[UIImage imageNamed:@"retweet_on"] forState:UIControlStateNormal];
+            tweet.retweetCount = tweet.retweetCount + 1;
+        }
+        tweet.retweeted  = !tweet.retweeted;
+        
+        cell.rcount.text =[NSString stringWithFormat:@"%ld", tweet.retweetCount];
+    }
+    if([type isEqual: @"favorite"]){
+        if(tweet.favorited){
+            
+            tweet.favoritesCount = tweet.favoritesCount - 1;
+            cell.favoriteButton.alpha = 0;
+            [UIView animateWithDuration:0.3 animations:^{
+                cell.favoriteButton.alpha = 1;
+                [cell.favoriteButton setImage:[UIImage imageNamed:@"favorite_animated"] forState:UIControlStateNormal];
+                POPSpringAnimation *scaleAnimation = [POPSpringAnimation animationWithPropertyNamed:kPOPLayerScaleXY];
+                scaleAnimation.toValue = [NSValue valueWithCGSize:CGSizeMake(2, 2)];
+                scaleAnimation.springBounciness = 10.f;
+                [cell.favoriteButton.layer pop_addAnimation:scaleAnimation forKey:@"scaleAnim"];
+            } completion:^(BOOL finished) {
+                POPSpringAnimation *scaleAnimation = [POPSpringAnimation animationWithPropertyNamed:kPOPLayerScaleXY];
+                scaleAnimation.toValue = [NSValue valueWithCGSize:CGSizeMake(1.0, 1.0)];
+                scaleAnimation.springBounciness = 10.f;
+                [cell.favoriteButton.layer pop_addAnimation:scaleAnimation forKey:@"scaleAnim"];
+                [cell.favoriteButton setImage:[UIImage imageNamed:@"favorite"] forState:UIControlStateNormal];
+            }];
+        } else {
+            cell.favoriteButton.alpha = 0;
+            [UIView animateWithDuration:0.3 animations:^{
+                cell.favoriteButton.alpha = 1;
+                [cell.favoriteButton setImage:[UIImage imageNamed:@"favorite_animated"] forState:UIControlStateNormal];
+                POPSpringAnimation *scaleAnimation = [POPSpringAnimation animationWithPropertyNamed:kPOPLayerScaleXY];
+                scaleAnimation.toValue = [NSValue valueWithCGSize:CGSizeMake(2, 2)];
+                scaleAnimation.springBounciness = 10.f;
+                [cell.favoriteButton.layer pop_addAnimation:scaleAnimation forKey:@"scaleAnim"];
+            } completion:^(BOOL finished) {
+                
+                POPSpringAnimation *scaleAnimation = [POPSpringAnimation animationWithPropertyNamed:kPOPLayerScaleXY];
+                scaleAnimation.toValue = [NSValue valueWithCGSize:CGSizeMake(1.0, 1.0)];
+                scaleAnimation.springBounciness = 10.f;
+                [cell.favoriteButton.layer pop_addAnimation:scaleAnimation forKey:@"scaleAnim"];
+                [cell.favoriteButton setImage:[UIImage imageNamed:@"favorite_on"] forState:UIControlStateNormal];
+            }];
+            
+            tweet.favoritesCount = tweet.favoritesCount + 1;
+        }
+        tweet.favorited = !tweet.favorited;
+        cell.fcount.text = [NSString stringWithFormat:@"%ld", tweet.favoritesCount];
+    }
+}
+
+
+-(void)photoCell:(PhotoCell *)photoCell reply:(UIButton *)button {
+    NSLog(@"Reply");
+}
+
+-(void) photoCell:(PhotoCell *)photoCell retweet:(UIButton *)button{
+    NSLog(@"Retweet");
+    NSIndexPath *indexPath = [self.tableView indexPathForCell:photoCell];
+    Tweet *tweet = self.tweets[indexPath.row];
+    [self togglePhotoCell:tweet forCell:photoCell type:@"retweet"];
+}
+
+-(void) photoCell:(PhotoCell *)photoCell favorite:(UIButton *)button{
+    NSLog(@"favorite");
+    NSIndexPath *indexPath = [self.tableView indexPathForCell:photoCell];
+    Tweet *tweet = self.tweets[indexPath.row];
+    [self togglePhotoCell:tweet forCell:photoCell type:@"favorite"];
+}
+
+-(void)textCell:(TextCell *)textCell reply:(UIButton *)button {
+    NSLog(@"Reply");
+}
+
+-(void) textCell:(TextCell *)textCell retweet:(UIButton *)button{
+    NSLog(@"Retweet");
+    NSIndexPath *indexPath = [self.tableView indexPathForCell:textCell];
+    Tweet *tweet = self.tweets[indexPath.row];
+    [self toggleTextCell:tweet forCell:textCell type:@"retweet"];
+}
+
+-(void) textCell:(TextCell *)textCell favorite:(UIButton *)button{
+    NSLog(@"favorite");
+    NSIndexPath *indexPath = [self.tableView indexPathForCell:textCell];
+    Tweet *tweet = self.tweets[indexPath.row];
+    [self toggleTextCell:tweet forCell:textCell type:@"favorite"];
+}
+
 @end

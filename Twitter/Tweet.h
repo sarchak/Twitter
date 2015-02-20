@@ -20,6 +20,9 @@
 @property (nonatomic, strong) Media *media;
 @property (nonatomic, strong) User *user;
 @property (nonatomic, strong) User *retweetedBy;
+@property (nonatomic, strong) NSString *id_str;
+@property (nonatomic, assign) BOOL favorited;
+@property (nonatomic, assign) BOOL retweeted;
 
 -(id) initWithDictionary:(NSDictionary*) dictionary;
 +(NSArray *) tweetsFromArray:(NSArray*) dictionaries;

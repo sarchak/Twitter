@@ -75,4 +75,40 @@ NSString *const baseUrl = @"https://api.twitter.com";
         }];
 }
 
+-(void)favoriteWithParams:(NSDictionary*) params completion:(void (^)(NSError *error))completion {
+    
+    NSLog(@"%@", params);
+    [self POST:@"1.1/favorites/create.json" parameters:params success:^(AFHTTPRequestOperation *operation, id responseObject) {
+        completion(nil);
+    } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
+        completion(error);
+        NSLog(@"Failed to favorite %@" , error);
+    }];
+}
+
+-(void)unFavoriteWithParams:(NSDictionary*) params completion:(void (^)(NSError *error))completion {
+    
+    NSLog(@"%@", params);
+    [self POST:@"1.1/favorites/destroy.json" parameters:params success:^(AFHTTPRequestOperation *operation, id responseObject) {
+        completion(nil);
+    } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
+        completion(error);
+        NSLog(@"Failed to favorite %@" , error);
+    }];
+}
+
+-(void)retweetWithParams:(NSDictionary*) params completion:(void (^)(NSError *error))completion {
+    
+    NSLog(@"%@", params);
+    [self POST:@"1.1/statuses/retweet/:id.json" parameters:params success:^(AFHTTPRequestOperation *operation, id responseObject) {
+        completion(nil);
+    } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
+        completion(error);
+        NSLog(@"Failed to favorite %@" , error);
+    }];
+}
+
+
+
+
 @end

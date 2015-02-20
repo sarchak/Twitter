@@ -27,4 +27,16 @@
     [super layoutSubviews];
     self.tweetLabel.preferredMaxLayoutWidth =  self.tweetLabel.frame.size.width;
 }
+
+
+- (IBAction)reply:(id)sender {
+    [self.delegate textCell:self reply:sender];
+}
+- (IBAction)retweet:(id)sender {
+    [self.delegate textCell:self retweet:sender];
+}
+- (IBAction)favorite:(id)sender {
+    [self.delegate textCell:self favorite:sender];
+}
+
 @end

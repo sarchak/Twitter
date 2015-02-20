@@ -13,7 +13,12 @@
 -(id) initWithDictionary:(NSDictionary *)dictionary {
     self = [super init];
     
+    
     if (self) {
+        self.id_str = dictionary[@"id_str"];
+        self.favorited = [[dictionary objectForKey:@"favorited"] boolValue];
+        self.retweeted = [[dictionary objectForKey:@"retweeted"] boolValue];
+        
         NSDictionary* tempdictionary = nil;
         if(dictionary[@"retweeted_status"]!=nil){
             self.retweetedBy = [[User alloc] initWithDictionary:dictionary[@"user"]];
