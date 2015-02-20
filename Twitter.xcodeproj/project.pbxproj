@@ -30,6 +30,8 @@
 		56DED63C1A971368007FB416 /* StatsCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 56DED63A1A971368007FB416 /* StatsCell.xib */; };
 		56DED6401A971462007FB416 /* ActionCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 56DED63E1A971462007FB416 /* ActionCell.m */; };
 		56DED6411A971462007FB416 /* ActionCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 56DED63F1A971462007FB416 /* ActionCell.xib */; };
+		56DED6491A971F48007FB416 /* ComposeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 56DED6471A971F48007FB416 /* ComposeViewController.m */; };
+		56DED64A1A971F48007FB416 /* ComposeViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 56DED6481A971F48007FB416 /* ComposeViewController.xib */; };
 		82469DC5E7C3113C51D3D04E /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = BD5E011041DF57C7D1E8B19F /* libPods.a */; };
 /* End PBXBuildFile section */
 
@@ -85,6 +87,9 @@
 		56DED63D1A971462007FB416 /* ActionCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ActionCell.h; sourceTree = "<group>"; };
 		56DED63E1A971462007FB416 /* ActionCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ActionCell.m; sourceTree = "<group>"; };
 		56DED63F1A971462007FB416 /* ActionCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ActionCell.xib; sourceTree = "<group>"; };
+		56DED6461A971F48007FB416 /* ComposeViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ComposeViewController.h; sourceTree = "<group>"; };
+		56DED6471A971F48007FB416 /* ComposeViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ComposeViewController.m; sourceTree = "<group>"; };
+		56DED6481A971F48007FB416 /* ComposeViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ComposeViewController.xib; sourceTree = "<group>"; };
 		BD5E011041DF57C7D1E8B19F /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
@@ -180,6 +185,9 @@
 				56DED6331A970E64007FB416 /* DetailViewController.h */,
 				56DED6341A970E64007FB416 /* DetailViewController.m */,
 				56DED6351A970E64007FB416 /* DetailViewController.xib */,
+				56DED6461A971F48007FB416 /* ComposeViewController.h */,
+				56DED6471A971F48007FB416 /* ComposeViewController.m */,
+				56DED6481A971F48007FB416 /* ComposeViewController.xib */,
 			);
 			name = ViewControllers;
 			sourceTree = "<group>";
@@ -320,6 +328,7 @@
 				56DED6321A96F4D6007FB416 /* PhotoCell.xib in Resources */,
 				5682A7311A9678ED00FFF6D3 /* TweetsViewController.xib in Resources */,
 				56DED6371A970E64007FB416 /* DetailViewController.xib in Resources */,
+				56DED64A1A971F48007FB416 /* ComposeViewController.xib in Resources */,
 				5682A7081A965F2700FFF6D3 /* LaunchScreen.xib in Resources */,
 				56DED62D1A96A977007FB416 /* TextCell.xib in Resources */,
 				56DED63C1A971368007FB416 /* StatsCell.xib in Resources */,
@@ -387,6 +396,7 @@
 				56DED6361A970E64007FB416 /* DetailViewController.m in Sources */,
 				5682A6FA1A965F2700FFF6D3 /* main.m in Sources */,
 				56DED6401A971462007FB416 /* ActionCell.m in Sources */,
+				56DED6491A971F48007FB416 /* ComposeViewController.m in Sources */,
 				5682A7211A965F7B00FFF6D3 /* LoginViewController.m in Sources */,
 				5682A7301A9678ED00FFF6D3 /* TweetsViewController.m in Sources */,
 			);

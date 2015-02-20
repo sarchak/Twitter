@@ -13,7 +13,7 @@
 #import "TextCell.h"
 #import "PhotoCell.h"
 #import "DetailViewController.h"
-
+#import "ComposeViewController.h"
 #import "UIImageView+AFNetworking.h"
 #import "NSDate+DateTools.h"
 #import "SVProgressHUD.h"
@@ -46,7 +46,17 @@
 
     
     [self fetchData];
-    
+
+    self.navigationItem.rightBarButtonItem =  [[UIBarButtonItem alloc] initWithBarButtonSystemItem: UIBarButtonSystemItemCompose target:self action:@selector(compose)];
+
+}
+
+-(void) compose {
+
+    ComposeViewController *cvc = [[ComposeViewController alloc] init];
+    UINavigationController *nvc = [[UINavigationController alloc] initWithRootViewController:cvc];
+
+    [self presentViewController:nvc animated:YES completion:nil];
 }
 
 -(void) fetchData {

@@ -22,7 +22,7 @@
         self.createdAt = [formatter dateFromString:createdAtString];
         self.retweetCount = [[dictionary objectForKey:@"retweet_count"] integerValue];
         self.favoritesCount = [[dictionary objectForKey:@"favorites_count"] integerValue];
-        NSDictionary *currentMedia = [dictionary valueForKeyPath:@"entities.media"];
+        NSArray *currentMedia = [dictionary valueForKeyPath:@"entities.media"];
         if(currentMedia != nil){
             self.media = [[Media alloc] initWithDictionary:currentMedia];
         }
