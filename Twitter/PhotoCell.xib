@@ -112,10 +112,10 @@
                         <nil key="highlightedColor"/>
                     </label>
                     <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="retweet_on" translatesAutoresizingMaskIntoConstraints="NO" id="zz8-Cb-RMJ">
-                        <rect key="frame" x="50" y="6" width="18" height="14"/>
+                        <rect key="frame" x="50" y="6" width="16" height="12"/>
                         <constraints>
-                            <constraint firstAttribute="width" constant="18" id="CQ8-fp-vBg"/>
-                            <constraint firstAttribute="height" constant="14" id="R4Y-hv-14T"/>
+                            <constraint firstAttribute="width" constant="16" id="CQ8-fp-vBg"/>
+                            <constraint firstAttribute="height" constant="12" id="R4Y-hv-14T"/>
                         </constraints>
                     </imageView>
                 </subviews>
@@ -145,7 +145,7 @@
                     <constraint firstItem="qmq-X8-dB0" firstAttribute="leading" secondItem="tKY-mh-8k4" secondAttribute="trailing" constant="8" id="cgQ-Kr-CiT"/>
                     <constraint firstItem="OSe-wd-O05" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="3" id="cuW-MZ-pa1"/>
                     <constraint firstItem="RAb-pV-NKh" firstAttribute="leading" secondItem="wJ0-f0-o0l" secondAttribute="trailing" constant="61" id="dAO-Mj-XvD"/>
-                    <constraint firstItem="zz8-Cb-RMJ" firstAttribute="trailing" secondItem="tKY-mh-8k4" secondAttribute="trailing" id="e1i-Bx-Ixi"/>
+                    <constraint firstItem="zz8-Cb-RMJ" firstAttribute="trailing" secondItem="tKY-mh-8k4" secondAttribute="trailing" constant="-2" id="e1i-Bx-Ixi"/>
                     <constraint firstItem="RAb-pV-NKh" firstAttribute="centerY" secondItem="MLV-cJ-Kuz" secondAttribute="centerY" constant="2" id="ka2-ve-Tb5"/>
                     <constraint firstItem="hX2-cy-LuU" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="3wD-MS-pD9" secondAttribute="trailing" constant="5" id="mLY-ws-pS9"/>
                     <constraint firstItem="MLV-cJ-Kuz" firstAttribute="centerY" secondItem="Ox0-js-qBI" secondAttribute="centerY" constant="-1.75" id="mqA-9A-HrK"/>

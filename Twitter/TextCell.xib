@@ -106,10 +106,10 @@
                         <nil key="highlightedColor"/>
                     </label>
                     <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="retweet_on" translatesAutoresizingMaskIntoConstraints="NO" id="kmd-qW-xh2">
-                        <rect key="frame" x="53" y="5" width="18" height="14"/>
+                        <rect key="frame" x="53" y="5" width="16" height="12"/>
                         <constraints>
-                            <constraint firstAttribute="height" constant="14" id="Qfn-pJ-JIz"/>
-                            <constraint firstAttribute="width" constant="18" id="qZH-1r-L13"/>
+                            <constraint firstAttribute="height" constant="12" id="Qfn-pJ-JIz"/>
+                            <constraint firstAttribute="width" constant="16" id="qZH-1r-L13"/>
                         </constraints>
                     </imageView>
                 </subviews>
@@ -129,7 +129,7 @@
                     <constraint firstItem="g2N-0A-1Uk" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="18" id="Gk4-lc-RHq"/>
                     <constraint firstItem="c5m-Py-7Sp" firstAttribute="centerY" secondItem="90D-B6-QuO" secondAttribute="centerY" id="MBa-7T-Oh0"/>
                     <constraint firstItem="lu4-4g-ntM" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="3" id="MVB-KS-TLd"/>
-                    <constraint firstItem="kmd-qW-xh2" firstAttribute="trailing" secondItem="IvZ-mH-V0b" secondAttribute="trailing" constant="3" id="PaX-q2-XQv"/>
+                    <constraint firstItem="kmd-qW-xh2" firstAttribute="trailing" secondItem="IvZ-mH-V0b" secondAttribute="trailing" constant="1" id="PaX-q2-XQv"/>
                     <constraint firstItem="IvZ-mH-V0b" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="8" id="Q5U-WH-ru4"/>
                     <constraint firstItem="J0o-rz-Olg" firstAttribute="leading" secondItem="veq-IZ-Uax" secondAttribute="trailing" constant="62" id="Rws-2G-2Ql"/>
                     <constraint firstItem="90D-B6-QuO" firstAttribute="leading" secondItem="c5m-Py-7Sp" secondAttribute="trailing" id="U80-Sq-te8"/>
