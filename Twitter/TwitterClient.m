@@ -109,6 +109,16 @@ NSString *const baseUrl = @"https://api.twitter.com";
 }
 
 
+-(void) tweetWithParams:(NSDictionary*) params completion:(void (^)(Tweet *tweet, NSError *error)) completion {
+    [self POST:@"1.1/statuses/update.json" parameters:params success:^(AFHTTPRequestOperation *operation, id responseObject) {
+        Tweet *tweet = [[Tweet alloc] initWithDictionary:responseObject];
+        completion(tweet,nil);
+    } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
+        completion(nil,error);
+        NSLog(@"Failed to tweet %@" , error);
+    }];
+    
+}
 
 
 @end

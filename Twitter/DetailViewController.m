@@ -69,14 +69,15 @@
         pcell.favoriteButton.hidden = YES;
         pcell.retweetButton.hidden = YES;
         
-
+        pcell.retweetedLabel.hidden = YES;
         cell = pcell;
         
         
         cell = pcell;
     } else{
         TextCell *tcell = [self.tableView dequeueReusableCellWithIdentifier:@"TextCell"];
-        tcell = tcell;
+        
+        tcell.retweetedLabel.hidden = YES;
         tcell.nameLabel.text = tweet.user.name;
         tcell.tweetLabel.text = tweet.text;
         

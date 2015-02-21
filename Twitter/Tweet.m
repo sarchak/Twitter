@@ -35,7 +35,6 @@
         self.createdAt = [formatter dateFromString:createdAtString];
         self.retweetCount = [[tempdictionary objectForKey:@"retweet_count"] integerValue];
         self.favoritesCount = [[tempdictionary objectForKey:@"favorite_count"] integerValue];
-        NSLog(@"Favorites count :%ld", self.favoritesCount);
         NSArray *currentMedia = [tempdictionary valueForKeyPath:@"entities.media"];
         if(currentMedia != nil){
             self.media = [[Media alloc] initWithDictionary:currentMedia];

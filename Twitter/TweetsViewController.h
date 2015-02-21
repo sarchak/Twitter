@@ -9,7 +9,8 @@
 #import <UIKit/UIKit.h>
 #import "PhotoCell.h"
 #import "TextCell.h"
+#import "ComposeViewController.h"
 
-@interface TweetsViewController : UIViewController <UITableViewDataSource, UITableViewDelegate, PhotoCellDelegate, TextCellDelegate>
+@interface TweetsViewController : UIViewController <UITableViewDataSource, UITableViewDelegate, PhotoCellDelegate, TextCellDelegate, ComposeViewControllerDelegate>
 
 @end

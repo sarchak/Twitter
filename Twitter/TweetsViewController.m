@@ -21,7 +21,7 @@
 @interface TweetsViewController ()
 @property (weak, nonatomic) IBOutlet UITableView *tableView;
 @property (strong, nonatomic) UIRefreshControl *refreshControl;
-@property (nonatomic,strong) NSArray *tweets;
+@property (nonatomic,strong) NSMutableArray *tweets;
 @end
 
 @implementation TweetsViewController
@@ -54,10 +54,21 @@
 -(void) compose {
 
     ComposeViewController *cvc = [[ComposeViewController alloc] init];
+    cvc.delegate = self;
     UINavigationController *nvc = [[UINavigationController alloc] initWithRootViewController:cvc];
 
     [self presentViewController:nvc animated:YES completion:nil];
 }
+
+-(void) composeViewController:(ComposeViewController *)composeViewController tweet:(Tweet *)tweet {
+    NSIndexPath *indexPath = [NSIndexPath indexPathForRow:0 inSection:0];
+    [self.tweets insertObject:tweet atIndex:0];
+//    [self.tableView beginUpdates];
+    [self.tableView insertRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationAutomatic];
+//    [self.tableView endUpdates];
+
+}
+
 
 -(void) fetchData {
     NSDictionary *dictionary = [[NSDictionary alloc] initWithObjectsAndKeys:[NSNumber numberWithInt:200], @"count", [NSNumber numberWithBool:YES], @"include_entities",nil];
@@ -65,7 +76,7 @@
         [self.refreshControl endRefreshing];
         [SVProgressHUD dismiss];
         if(tweets != nil){
-            self.tweets = tweets;
+            self.tweets = [tweets mutableCopy];
             [self.tableView reloadData];
         }
     }];
