@@ -52,11 +52,12 @@
                         <nil key="highlightedColor"/>
                     </label>
                     <button opaque="NO" contentMode="scaleAspectFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="veq-IZ-Uax">
-                        <rect key="frame" x="76" y="72" width="14" height="14"/>
+                        <rect key="frame" x="76" y="69" width="24" height="20"/>
                         <constraints>
-                            <constraint firstAttribute="width" constant="14" id="5R8-6y-P3P"/>
-                            <constraint firstAttribute="height" constant="14" id="cUi-kB-qyI"/>
+                            <constraint firstAttribute="width" constant="24" id="5R8-6y-P3P"/>
+                            <constraint firstAttribute="height" constant="20" id="cUi-kB-qyI"/>
                         </constraints>
+                        <inset key="contentEdgeInsets" minX="2" minY="2" maxX="2" maxY="2"/>
                         <state key="normal" image="reply">
                             <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                         </state>
@@ -65,11 +66,12 @@
                         </connections>
                     </button>
                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="J0o-rz-Olg">
-                        <rect key="frame" x="169" y="72" width="24" height="14"/>
+                        <rect key="frame" x="162" y="69" width="30" height="20"/>
                         <constraints>
-                            <constraint firstAttribute="height" constant="14" id="L4K-yW-8Gi"/>
-                            <constraint firstAttribute="width" constant="24" id="UJc-Mo-rHj"/>
+                            <constraint firstAttribute="height" constant="20" id="L4K-yW-8Gi"/>
+                            <constraint firstAttribute="width" constant="30" id="UJc-Mo-rHj"/>
                         </constraints>
+                        <inset key="contentEdgeInsets" minX="2" minY="2" maxX="2" maxY="2"/>
                         <state key="normal" image="retweet">
                             <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                         </state>
@@ -78,11 +80,12 @@
                         </connections>
                     </button>
                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="c5m-Py-7Sp">
-                        <rect key="frame" x="272" y="72" width="14" height="14"/>
+                        <rect key="frame" x="263" y="69" width="24" height="20"/>
                         <constraints>
-                            <constraint firstAttribute="width" constant="14" id="JK1-tM-4Fe"/>
-                            <constraint firstAttribute="height" constant="14" id="pHn-Ea-Hep"/>
+                            <constraint firstAttribute="width" constant="24" id="JK1-tM-4Fe"/>
+                            <constraint firstAttribute="height" constant="20" id="pHn-Ea-Hep"/>
                         </constraints>
+                        <inset key="contentEdgeInsets" minX="2" minY="2" maxX="2" maxY="2"/>
                         <state key="normal" image="favorite">
                             <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                         </state>
@@ -111,7 +114,7 @@
                     </imageView>
                 </subviews>
                 <constraints>
-                    <constraint firstItem="J0o-rz-Olg" firstAttribute="top" secondItem="wel-mP-QCb" secondAttribute="bottom" constant="7.5" id="0ex-v9-rjR"/>
+                    <constraint firstItem="J0o-rz-Olg" firstAttribute="top" secondItem="wel-mP-QCb" secondAttribute="bottom" constant="4" id="0ex-v9-rjR"/>
                     <constraint firstItem="lu4-4g-ntM" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="74" id="1B9-ZO-jwU"/>
                     <constraint firstItem="J0o-rz-Olg" firstAttribute="centerY" secondItem="lQH-Ua-2rv" secondAttribute="centerY" id="4Da-tX-2CM"/>
                     <constraint firstItem="J0o-rz-Olg" firstAttribute="top" secondItem="wel-mP-QCb" secondAttribute="bottom" constant="7.5" id="6k1-IZ-ReQ"/>
@@ -128,29 +131,29 @@
                     <constraint firstItem="lu4-4g-ntM" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="3" id="MVB-KS-TLd"/>
                     <constraint firstItem="kmd-qW-xh2" firstAttribute="trailing" secondItem="IvZ-mH-V0b" secondAttribute="trailing" constant="3" id="PaX-q2-XQv"/>
                     <constraint firstItem="IvZ-mH-V0b" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="8" id="Q5U-WH-ru4"/>
-                    <constraint firstItem="J0o-rz-Olg" firstAttribute="leading" secondItem="veq-IZ-Uax" secondAttribute="trailing" constant="79" id="Rws-2G-2Ql"/>
-                    <constraint firstItem="90D-B6-QuO" firstAttribute="leading" secondItem="c5m-Py-7Sp" secondAttribute="trailing" constant="1" id="U80-Sq-te8"/>
+                    <constraint firstItem="J0o-rz-Olg" firstAttribute="leading" secondItem="veq-IZ-Uax" secondAttribute="trailing" constant="62" id="Rws-2G-2Ql"/>
+                    <constraint firstItem="90D-B6-QuO" firstAttribute="leading" secondItem="c5m-Py-7Sp" secondAttribute="trailing" id="U80-Sq-te8"/>
                     <constraint firstAttribute="bottom" relation="greaterThanOrEqual" secondItem="veq-IZ-Uax" secondAttribute="bottom" constant="5" id="UkH-qX-La1"/>
-                    <constraint firstAttribute="bottom" secondItem="c5m-Py-7Sp" secondAttribute="bottom" constant="7" id="VI0-T4-Imq"/>
+                    <constraint firstAttribute="bottom" secondItem="c5m-Py-7Sp" secondAttribute="bottom" constant="3.5" id="VI0-T4-Imq"/>
                     <constraint firstItem="IvZ-mH-V0b" firstAttribute="top" secondItem="lu4-4g-ntM" secondAttribute="bottom" constant="2" id="VW9-fu-rE8"/>
                     <constraint firstAttribute="bottomMargin" secondItem="wel-mP-QCb" secondAttribute="bottom" constant="33" id="WyV-b7-C4i"/>
                     <constraint firstItem="wel-mP-QCb" firstAttribute="top" secondItem="g2N-0A-1Uk" secondAttribute="bottom" constant="1" id="Zdc-zL-W2U"/>
-                    <constraint firstAttribute="bottom" secondItem="veq-IZ-Uax" secondAttribute="bottom" constant="7" id="cLH-y8-gqa"/>
+                    <constraint firstAttribute="bottom" secondItem="veq-IZ-Uax" secondAttribute="bottom" constant="3.5" id="cLH-y8-gqa"/>
                     <constraint firstItem="wel-mP-QCb" firstAttribute="top" secondItem="3sE-0s-AxC" secondAttribute="bottom" constant="7.5" id="cvL-zd-Uxu"/>
                     <constraint firstItem="wel-mP-QCb" firstAttribute="leading" secondItem="IvZ-mH-V0b" secondAttribute="trailing" constant="4" id="dXq-hp-aUk"/>
-                    <constraint firstItem="c5m-Py-7Sp" firstAttribute="leading" secondItem="J0o-rz-Olg" secondAttribute="trailing" constant="79" id="eLk-zd-xHc"/>
+                    <constraint firstItem="c5m-Py-7Sp" firstAttribute="leading" secondItem="J0o-rz-Olg" secondAttribute="trailing" constant="71" id="eLk-zd-xHc"/>
                     <constraint firstAttribute="trailing" secondItem="wel-mP-QCb" secondAttribute="trailing" constant="8" id="ejh-Vi-N0t"/>
                     <constraint firstItem="veq-IZ-Uax" firstAttribute="top" secondItem="wel-mP-QCb" secondAttribute="bottom" constant="7.5" id="giV-lF-L0d"/>
-                    <constraint firstItem="c5m-Py-7Sp" firstAttribute="top" secondItem="wel-mP-QCb" secondAttribute="bottom" constant="7.5" id="hAF-ho-HgG"/>
+                    <constraint firstItem="c5m-Py-7Sp" firstAttribute="top" secondItem="wel-mP-QCb" secondAttribute="bottom" constant="4" id="hAF-ho-HgG"/>
                     <constraint firstItem="ujJ-6d-y8O" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="21" id="i9u-km-OnL"/>
                     <constraint firstItem="3sE-0s-AxC" firstAttribute="centerY" secondItem="g2N-0A-1Uk" secondAttribute="centerY" constant="1" id="iXY-eW-fIX"/>
                     <constraint firstItem="wel-mP-QCb" firstAttribute="top" secondItem="3sE-0s-AxC" secondAttribute="bottom" id="kQB-AO-wBK"/>
-                    <constraint firstAttribute="bottom" secondItem="J0o-rz-Olg" secondAttribute="bottom" constant="7" id="n3G-td-niC"/>
+                    <constraint firstAttribute="bottom" secondItem="J0o-rz-Olg" secondAttribute="bottom" constant="3.5" id="n3G-td-niC"/>
                     <constraint firstItem="wel-mP-QCb" firstAttribute="top" secondItem="g2N-0A-1Uk" secondAttribute="bottom" id="nOW-Ew-2Y3"/>
                     <constraint firstItem="wel-mP-QCb" firstAttribute="top" secondItem="g2N-0A-1Uk" secondAttribute="bottom" constant="3.5" id="qfr-4n-4RH"/>
-                    <constraint firstItem="veq-IZ-Uax" firstAttribute="top" secondItem="wel-mP-QCb" secondAttribute="bottom" constant="7.5" id="u8S-S3-JzX"/>
+                    <constraint firstItem="veq-IZ-Uax" firstAttribute="top" secondItem="wel-mP-QCb" secondAttribute="bottom" constant="4" id="u8S-S3-JzX"/>
                     <constraint firstItem="wel-mP-QCb" firstAttribute="top" secondItem="g2N-0A-1Uk" secondAttribute="bottom" constant="3.5" id="xTk-BI-hbu"/>
-                    <constraint firstItem="lQH-Ua-2rv" firstAttribute="leading" secondItem="J0o-rz-Olg" secondAttribute="trailing" constant="1" id="yia-0f-2c6"/>
+                    <constraint firstItem="lQH-Ua-2rv" firstAttribute="leading" secondItem="J0o-rz-Olg" secondAttribute="trailing" constant="2" id="yia-0f-2c6"/>
                     <constraint firstItem="wel-mP-QCb" firstAttribute="top" secondItem="g2N-0A-1Uk" secondAttribute="bottom" constant="3.5" id="yos-mO-N8w"/>
                 </constraints>
                 <variation key="default">

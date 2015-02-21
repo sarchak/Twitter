@@ -100,9 +100,6 @@
 -(UITableViewCell*) tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     
     UITableViewCell *cell = nil;
-    
-    
-    
     Tweet *tweet = self.tweets[indexPath.row];
     if(tweet.media != nil){
         
@@ -306,6 +303,16 @@
 
 -(void)photoCell:(PhotoCell *)photoCell reply:(UIButton *)button {
     NSLog(@"Reply");
+    NSIndexPath *indexPath = [self.tableView indexPathForCell:photoCell];
+    Tweet *tweet = self.tweets[indexPath.row];
+    ComposeViewController *cvc = [[ComposeViewController alloc] init];
+    cvc.delegate = self;
+    cvc.text = [NSString stringWithFormat:@"@%@", tweet.user.screenName];
+    cvc.in_reply_to_status_id = tweet.id_str;
+    UINavigationController *nvc = [[UINavigationController alloc] initWithRootViewController:cvc];
+    
+    [self presentViewController:nvc animated:YES completion:nil];
+    
 }
 
 -(void) photoCell:(PhotoCell *)photoCell retweet:(UIButton *)button{
@@ -324,6 +331,16 @@
 
 -(void)textCell:(TextCell *)textCell reply:(UIButton *)button {
     NSLog(@"Reply");
+    NSIndexPath *indexPath = [self.tableView indexPathForCell:textCell];
+    Tweet *tweet = self.tweets[indexPath.row];
+    ComposeViewController *cvc = [[ComposeViewController alloc] init];
+    cvc.delegate = self;
+    cvc.text = [NSString stringWithFormat:@"@%@", tweet.user.screenName];
+    cvc.in_reply_to_status_id = tweet.id_str;
+    UINavigationController *nvc = [[UINavigationController alloc] initWithRootViewController:cvc];
+    
+    [self presentViewController:nvc animated:YES completion:nil];
+    
 }
 
 -(void) textCell:(TextCell *)textCell retweet:(UIButton *)button{

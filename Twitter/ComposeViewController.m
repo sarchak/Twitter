@@ -32,14 +32,16 @@
     self.profileImageView.layer.cornerRadius = 5.0;
     self.name.text = user.name;
 
-    self.inputText.text = self.text;
+
     self.inputText.delegate = self;
     self.navigationItem.leftBarButtonItem = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemStop target:self action:@selector(cancel)];
     
-
-    self.count = [[UIBarButtonItem alloc] initWithTitle:@"140" style:UIBarButtonItemStylePlain target:self action:@selector(cancel)];
+    NSString *count = [NSString stringWithFormat:@"%ld", 140 - self.text.length];
+    [self.inputText setSelectedRange:NSMakeRange(0, self.text.length)];
+    self.count = [[UIBarButtonItem alloc] initWithTitle:count style:UIBarButtonItemStylePlain target:self action:@selector(cancel)];
     UIBarButtonItem *tweet = [[UIBarButtonItem alloc] initWithTitle:@"Tweet" style:UIBarButtonItemStylePlain target:self action:@selector(tweet)];
     self.navigationItem.rightBarButtonItems = @[tweet, self.count];
+    [self.inputText setText:self.text];
 }
 
 - (void)didReceiveMemoryWarning {
@@ -68,8 +70,18 @@
 
 -(void) textViewDidChange:(UITextView *)textView{
     NSInteger number = 140 - textView.text.length;
+    
     [UIView setAnimationsEnabled:NO];
     [self.count setTitle:[NSString stringWithFormat:@"%ld", number]];
+    if(number <=0){
+        [self.count setTintColor:[UIColor redColor]];
+    } else if(number > 0 && number < 10){
+        [self.count setTintColor:[UIColor orangeColor]];
+    } else {
+        [self.count setTintColor:[UIColor whiteColor]];
+    }
+    
+    
     [UIView setAnimationsEnabled:YES];
 
 }

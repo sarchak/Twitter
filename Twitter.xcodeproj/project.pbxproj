@@ -32,6 +32,7 @@
 		56DED6411A971462007FB416 /* ActionCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 56DED63F1A971462007FB416 /* ActionCell.xib */; };
 		56DED6491A971F48007FB416 /* ComposeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 56DED6471A971F48007FB416 /* ComposeViewController.m */; };
 		56DED64A1A971F48007FB416 /* ComposeViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 56DED6481A971F48007FB416 /* ComposeViewController.xib */; };
+		56DED64C1A980EAE007FB416 /* Twitter_logo_white_48.png in Resources */ = {isa = PBXBuildFile; fileRef = 56DED64B1A980EAE007FB416 /* Twitter_logo_white_48.png */; };
 		82469DC5E7C3113C51D3D04E /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = BD5E011041DF57C7D1E8B19F /* libPods.a */; };
 /* End PBXBuildFile section */
 
@@ -90,6 +91,7 @@
 		56DED6461A971F48007FB416 /* ComposeViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ComposeViewController.h; sourceTree = "<group>"; };
 		56DED6471A971F48007FB416 /* ComposeViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ComposeViewController.m; sourceTree = "<group>"; };
 		56DED6481A971F48007FB416 /* ComposeViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ComposeViewController.xib; sourceTree = "<group>"; };
+		56DED64B1A980EAE007FB416 /* Twitter_logo_white_48.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Twitter_logo_white_48.png; sourceTree = "<group>"; };
 		BD5E011041DF57C7D1E8B19F /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
@@ -140,6 +142,7 @@
 				5682A71D1A965F6000FFF6D3 /* ViewControllers */,
 				5682A6FB1A965F2700FFF6D3 /* AppDelegate.h */,
 				5682A6FC1A965F2700FFF6D3 /* AppDelegate.m */,
+				56DED64B1A980EAE007FB416 /* Twitter_logo_white_48.png */,
 				5682A7041A965F2700FFF6D3 /* Images.xcassets */,
 				5682A7061A965F2700FFF6D3 /* LaunchScreen.xib */,
 				5682A6F71A965F2700FFF6D3 /* Supporting Files */,
@@ -329,6 +332,7 @@
 				5682A7311A9678ED00FFF6D3 /* TweetsViewController.xib in Resources */,
 				56DED6371A970E64007FB416 /* DetailViewController.xib in Resources */,
 				56DED64A1A971F48007FB416 /* ComposeViewController.xib in Resources */,
+				56DED64C1A980EAE007FB416 /* Twitter_logo_white_48.png in Resources */,
 				5682A7081A965F2700FFF6D3 /* LaunchScreen.xib in Resources */,
 				56DED62D1A96A977007FB416 /* TextCell.xib in Resources */,
 				56DED63C1A971368007FB416 /* StatsCell.xib in Resources */,

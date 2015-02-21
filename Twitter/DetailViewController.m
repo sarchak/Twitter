@@ -71,7 +71,7 @@
         
         pcell.retweetedLabel.hidden = YES;
         cell = pcell;
-        
+        pcell.retweet.hidden = YES;
         
         cell = pcell;
     } else{
@@ -80,7 +80,7 @@
         tcell.retweetedLabel.hidden = YES;
         tcell.nameLabel.text = tweet.user.name;
         tcell.tweetLabel.text = tweet.text;
-        
+        tcell.retweet.hidden = YES;
         
         NSString *biggerImageUrl = [tweet.user.profileImageUrl stringByReplacingOccurrencesOfString:@"_normal" withString:@"_bigger"];
         [tcell.userImageView setImageWithURL:[NSURL URLWithString:biggerImageUrl]];
