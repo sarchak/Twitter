@@ -16,7 +16,10 @@
 @interface DetailViewController ()
 @property (weak, nonatomic) IBOutlet UITableView *tableView;
 @property (strong, nonatomic) NSArray *replies;
-
+@property (weak, nonatomic) IBOutlet UITextView *comment;
+@property (weak, nonatomic) IBOutlet UIView *commentView;
+@property (assign, nonatomic) CGRect origFrame;
+@property (weak, nonatomic) IBOutlet NSLayoutConstraint *bottomConstraint;
 @end
 
 @implementation DetailViewController
@@ -33,6 +36,40 @@
     self.tableView.estimatedRowHeight = 250;
     self.tableView.tableFooterView = [[UIView alloc] init] ;
  
+}
+
+-(void) viewWillAppear:(BOOL)animated {
+    [super viewWillAppear:animated];
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(keyBoardWillShow:) name:UIKeyboardWillShowNotification object:nil];
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(keyBoardWillHide:) name:UIKeyboardWillHideNotification object:nil];
+}
+-(void) viewWillDisappear:(BOOL)animated{
+    [super viewWillDisappear:animated];
+    
+}
+-(void) keyBoardWillShow:(NSNotification*) notification{
+    NSLog(@"Keyboard will show");
+    NSDictionary *info = notification.userInfo;
+    
+    CGRect keyboardSize = [info[UIKeyboardFrameBeginUserInfoKey] CGRectValue];
+    CGFloat height = keyboardSize.size.height;
+    self.origFrame = self.commentView.frame;
+    NSLog(@"%@", NSStringFromCGRect(self.commentView.frame));
+    self.bottomConstraint.constant = height;
+    CGRect newFrame = CGRectMake(self.commentView.frame.origin.x, self.commentView.frame.origin.y - height, self.commentView.frame.size.width, self.commentView.frame.size.height);
+    NSLog(@"%@", NSStringFromCGRect(newFrame));
+    self.commentView.frame = newFrame;
+}
+
+-(void) keyBoardWillHide:(NSNotification*) notification{
+    NSLog(@"Keyboard will hide");
+    self.commentView.frame = self.origFrame;
+    //    self.bottomConstraint.constant = 0;
+}
+
+
+
+- (IBAction)send:(id)sender {
 }
 
 - (void)didReceiveMemoryWarning {

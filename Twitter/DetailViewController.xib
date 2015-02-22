@@ -6,6 +6,9 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="DetailViewController">
             <connections>
+                <outlet property="bottomConstraint" destination="j2t-7N-bvX" id="fhl-NE-19R"/>
+                <outlet property="comment" destination="Xyv-nA-kTO" id="pko-VD-FhH"/>
+                <outlet property="commentView" destination="kHU-1B-UyC" id="6Ge-Ne-Ylq"/>
                 <outlet property="tableView" destination="xuj-P2-ln6" id="VuM-FQ-mhG"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
             </connections>
@@ -19,12 +22,48 @@
                     <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                     <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                 </tableView>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="kHU-1B-UyC">
+                    <rect key="frame" x="0.0" y="518" width="320" height="50"/>
+                    <subviews>
+                        <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Xyv-nA-kTO">
+                            <rect key="frame" x="4" y="5" width="265" height="40"/>
+                            <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                            <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                            <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                        </textView>
+                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="1T6-0A-BIU">
+                            <rect key="frame" x="277" y="10" width="36" height="30"/>
+                            <constraints>
+                                <constraint firstAttribute="width" constant="36" id="DwF-rF-KO4"/>
+                            </constraints>
+                            <state key="normal" title="Send">
+                                <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                            </state>
+                            <connections>
+                                <action selector="send:" destination="-1" eventType="touchUpInside" id="hfQ-kQ-SX3"/>
+                            </connections>
+                        </button>
+                    </subviews>
+                    <color key="backgroundColor" red="0.91372549020000005" green="0.91372549020000005" blue="0.91372549020000005" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                    <constraints>
+                        <constraint firstItem="Xyv-nA-kTO" firstAttribute="leading" secondItem="kHU-1B-UyC" secondAttribute="leading" constant="4" id="B6G-9l-plV"/>
+                        <constraint firstItem="1T6-0A-BIU" firstAttribute="leading" secondItem="Xyv-nA-kTO" secondAttribute="trailing" constant="8" id="Jsr-DP-qYe"/>
+                        <constraint firstAttribute="trailing" secondItem="1T6-0A-BIU" secondAttribute="trailing" constant="7" id="apc-PG-W6w"/>
+                        <constraint firstAttribute="height" constant="50" id="cPN-Ka-EdF"/>
+                        <constraint firstItem="Xyv-nA-kTO" firstAttribute="top" secondItem="kHU-1B-UyC" secondAttribute="top" constant="5" id="iW9-jl-8U9"/>
+                        <constraint firstItem="1T6-0A-BIU" firstAttribute="top" secondItem="kHU-1B-UyC" secondAttribute="top" constant="10" id="l1q-fe-B8Q"/>
+                        <constraint firstItem="1T6-0A-BIU" firstAttribute="centerY" secondItem="Xyv-nA-kTO" secondAttribute="centerY" id="xgQ-E5-MV8"/>
+                    </constraints>
+                </view>
             </subviews>
             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
             <constraints>
                 <constraint firstAttribute="trailing" secondItem="xuj-P2-ln6" secondAttribute="trailing" id="6Av-fZ-aJ0"/>
                 <constraint firstItem="xuj-P2-ln6" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="L8d-2V-d2N"/>
+                <constraint firstAttribute="trailing" secondItem="kHU-1B-UyC" secondAttribute="trailing" id="LG5-nE-5wU"/>
                 <constraint firstAttribute="bottom" secondItem="xuj-P2-ln6" secondAttribute="bottom" id="QbI-eS-i6c"/>
+                <constraint firstItem="kHU-1B-UyC" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="S0V-SD-fWW"/>
+                <constraint firstAttribute="bottom" secondItem="kHU-1B-UyC" secondAttribute="bottom" id="j2t-7N-bvX"/>
                 <constraint firstItem="xuj-P2-ln6" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" id="muE-M2-FS1"/>
             </constraints>
             <point key="canvasLocation" x="325" y="243"/>
