@@ -33,7 +33,7 @@
                         <color key="textColor" red="0.47604776069999999" green="0.43302370480000002" blue="0.48086144180000001" alpha="1" colorSpace="calibratedRGB"/>
                         <nil key="highlightedColor"/>
                     </label>
-                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" text="Label" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="wel-mP-QCb">
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" text="Label" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="wel-mP-QCb" customClass="TTTAttributedLabel">
                         <rect key="frame" x="72" y="44" width="240" height="21"/>
                         <fontDescription key="fontDescription" name="Avenir-Roman" family="Avenir" pointSize="15"/>
                         <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
@@ -185,7 +185,7 @@
                 <outlet property="retweetedLabel" destination="lu4-4g-ntM" id="7ns-gZ-s7u"/>
                 <outlet property="screenName" destination="3sE-0s-AxC" id="0WV-5j-SPn"/>
                 <outlet property="timeLabel" destination="ujJ-6d-y8O" id="KxX-Yh-MVb"/>
-                <outlet property="tweetLabel" destination="wel-mP-QCb" id="SX5-EO-lvs"/>
+                <outlet property="tweetLabel" destination="wel-mP-QCb" id="FeF-xU-8lD"/>
                 <outlet property="userImageView" destination="IvZ-mH-V0b" id="p0B-lq-vfb"/>
             </connections>
             <point key="canvasLocation" x="673" y="356.5"/>

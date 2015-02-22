@@ -19,11 +19,12 @@
 #import "SVProgressHUD.h"
 #import <POP/POP.h>
 #import "UIScrollView+SVInfiniteScrolling.h"
-
+#import <WebKit/WebKit.h>
 @interface TweetsViewController ()
 @property (weak, nonatomic) IBOutlet UITableView *tableView;
 @property (strong, nonatomic) UIRefreshControl *refreshControl;
 @property (nonatomic,strong) NSMutableArray *tweets;
+@property (nonatomic, strong) WKWebView *webView;
 @end
 
 @implementation TweetsViewController
@@ -37,7 +38,6 @@
     [self.tableView registerNib:[UINib nibWithNibName:@"PhotoCell" bundle:nil] forCellReuseIdentifier:@"PhotoCell"];
     self.tableView.rowHeight = UITableViewAutomaticDimension;
     self.tableView.estimatedRowHeight = 250;
-
     self.refreshControl = [[UIRefreshControl alloc]init];
     [self.tableView addSubview:self.refreshControl];
     [self.refreshControl addTarget:self action:@selector(refreshTable) forControlEvents:UIControlEventValueChanged];
@@ -168,6 +168,7 @@
         TextCell *tcell = [tableView dequeueReusableCellWithIdentifier:@"TextCell"];
         tcell.delegate = self;
         tcell.retweetedLabel.hidden = YES;
+        tcell.tweetLabel.delegate = self;
         tcell.retweet.hidden = YES;
         tcell.retweetButton.imageView.image = [UIImage imageNamed:@"retweet"];
         tcell.favoriteButton.imageView.image = [UIImage imageNamed:@"favorite"];
@@ -472,4 +473,32 @@
     [self toggleTextCell:tweet forCell:textCell type:@"favorite"];
 }
 
+-(void)attributedLabel:(TTTAttributedLabel *)label didSelectLinkWithURL:(NSURL *)url{
+    NSLog(@"%@",url);
+
+    CGRect newFrame = CGRectMake(0, 64, self.view.frame.size.width, self.view.frame.size.height);
+    WKWebView *webView = [[WKWebView alloc] initWithFrame:newFrame];
+
+    webView.scrollView.contentInset = UIEdgeInsetsMake(44, 0, 0, 0);
+    NSURLRequest *req = [[NSURLRequest alloc] initWithURL:url];
+    [webView loadRequest:req];
+    [self.view addSubview:webView];
+    self.webView = webView;
+    UIToolbar *toolbar = [[UIToolbar alloc] initWithFrame:CGRectMake(0, 0, self.view.frame.size.width, 44)];
+    toolbar.backgroundColor = [UIColor clearColor];
+    
+    toolbar.autoresizingMask = UIViewAutoresizingFlexibleTopMargin| UIViewAutoresizingFlexibleWidth;
+    UIBarButtonItem *close = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemDone target:self action:@selector(close:)];
+    [toolbar setItems:@[close]];
+
+    [webView addSubview:toolbar];
+}
+
+-(void) close:(UIBarButtonItem*) sender {
+    [UIView animateWithDuration:0.5 animations:^{
+        self.webView.alpha = 0;
+        [self.webView removeFromSuperview];
+    }];
+    
+}
 @end

@@ -11,6 +11,6 @@
 #import "TextCell.h"
 #import "ComposeViewController.h"
 
-@interface TweetsViewController : UIViewController <UITableViewDataSource, UITableViewDelegate, PhotoCellDelegate, TextCellDelegate, ComposeViewControllerDelegate>
+@interface TweetsViewController : UIViewController <UITableViewDataSource, UITableViewDelegate, PhotoCellDelegate, TextCellDelegate, ComposeViewControllerDelegate,TTTAttributedLabelDelegate>
 
 @end

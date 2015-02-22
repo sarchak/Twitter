@@ -7,7 +7,7 @@
 //
 
 #import <UIKit/UIKit.h>
-
+#import "TTTAttributedLabel.h"
 @class TextCell;
 
 @protocol TextCellDelegate <NSObject>
@@ -19,7 +19,9 @@
 
 @interface TextCell : UITableViewCell
 @property (weak, nonatomic) IBOutlet UILabel *nameLabel;
-@property (weak, nonatomic) IBOutlet UILabel *tweetLabel;
+//@property (weak, nonatomic) IBOutlet UILabel *tweetLabel;
+@property (weak, nonatomic) IBOutlet TTTAttributedLabel *tweetLabel;
+
 @property (weak, nonatomic) IBOutlet UIImageView *userImageView;
 @property (weak, nonatomic) IBOutlet UILabel *retweetedLabel;
 @property (weak, nonatomic) IBOutlet UIButton *favoriteButton;

@@ -8,6 +8,7 @@
 
 #import <UIKit/UIKit.h>
 #import "Tweet.h"
+#import "TTTAttributedLabel.h"
 @class PhotoCell;
 
 @protocol PhotoCellDelegate <NSObject>
@@ -17,7 +18,7 @@
 -(void) photoCell:(PhotoCell*) photoCell  imageTapped: (UIImageView*) imageView;
 @end
 
-@interface PhotoCell : UITableViewCell
+@interface PhotoCell : UITableViewCell <TTTAttributedLabelDelegate>
 @property (weak, nonatomic) IBOutlet UILabel *nameLabel;
 @property (weak, nonatomic) IBOutlet UILabel *tweetLabel;
 @property (weak, nonatomic) IBOutlet UIImageView *userImageView;
