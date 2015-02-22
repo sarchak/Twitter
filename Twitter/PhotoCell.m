@@ -16,6 +16,9 @@
     self.mediaImageView.layer.cornerRadius = 5.0;
     self.retweetedLabel.hidden = YES;
     self.retweet.hidden = YES;
+    UITapGestureRecognizer *tapGesture = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(handleSingleTap:)];
+    tapGesture.numberOfTapsRequired = 1;
+    [self.mediaImageView addGestureRecognizer:tapGesture];
 }
 
 - (void)setSelected:(BOOL)selected animated:(BOOL)animated {
@@ -24,6 +27,10 @@
     
 }
 
+
+-(void) handleSingleTap:(id)imageView {
+    [self.delegate photoCell:self imageTapped:imageView];
+}
 
 - (IBAction)reply:(id)sender {
     [self.delegate photoCell:self reply:sender];
@@ -34,6 +41,7 @@
 - (IBAction)favorite:(id)sender {
     [self.delegate photoCell:self favorite:sender];
 }
+
 
 
 @end

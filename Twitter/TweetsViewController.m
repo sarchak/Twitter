@@ -416,6 +416,34 @@
     [self togglePhotoCell:tweet forCell:photoCell type:@"favorite"];
 }
 
+-(void) photoCell:(PhotoCell *)photoCell imageTapped:(UIImageView *)imageView {
+    NSIndexPath *indexPath = [self.tableView indexPathForCell:photoCell];
+    Tweet *tweet = self.tweets[indexPath.row];
+    UIImageView *imgView = [[UIImageView alloc] init];
+    imgView.userInteractionEnabled = YES;
+    imgView.contentMode = UIViewContentModeScaleAspectFill;
+    [imgView setImageWithURL:[NSURL URLWithString:tweet.media.mediaUrl]];
+    [self.view addSubview:imgView];
+//    UISwipeGestureRecognizer *swipeGesture = [[UISwipeGestureRecognizer alloc] initWithTarget:self action:@selector(handleSwipe:)];
+//    swipeGesture.direction = UISwipeGestureRecognizerDirectionLeft|UISwipeGestureRecognizerDirectionLeft|UISwipeGestureRecognizerDirectionDown|UISwipeGestureRecognizerDirectionUp;
+//    [imgView addGestureRecognizer:swipeGesture];
+
+    UITapGestureRecognizer *tapGesture = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(handleSwipe:)];
+    tapGesture.numberOfTapsRequired = 1;
+    [imgView addGestureRecognizer:tapGesture];
+    
+    POPSpringAnimation *anim = [POPSpringAnimation animationWithPropertyNamed:kPOPViewFrame];
+    anim.toValue = [NSValue valueWithCGRect:self.tableView.frame];
+    anim.springSpeed = 10;
+    anim.springBounciness = 10;
+    [imgView pop_addAnimation:anim forKey:@"scale"];
+}
+
+-(void) handleSwipe:(UIImageView*) imageView {
+
+    [imageView removeFromSuperview];
+}
+
 -(void)textCell:(TextCell *)textCell reply:(UIButton *)button {
     NSLog(@"Reply");
     NSIndexPath *indexPath = [self.tableView indexPathForCell:textCell];

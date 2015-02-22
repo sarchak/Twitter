@@ -14,6 +14,7 @@
 -(void) photoCell:(PhotoCell*) photoCell  favorite: (UIButton*) button;
 -(void) photoCell:(PhotoCell*) photoCell  retweet: (UIButton*) button;
 -(void) photoCell:(PhotoCell*) photoCell  reply: (UIButton*) button;
+-(void) photoCell:(PhotoCell*) photoCell  imageTapped: (UIImageView*) imageView;
 @end
 
 @interface PhotoCell : UITableViewCell
