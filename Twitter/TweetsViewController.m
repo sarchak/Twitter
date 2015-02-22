@@ -18,6 +18,8 @@
 #import "NSDate+DateTools.h"
 #import "SVProgressHUD.h"
 #import <POP/POP.h>
+#import "UIScrollView+SVInfiniteScrolling.h"
+
 @interface TweetsViewController ()
 @property (weak, nonatomic) IBOutlet UITableView *tableView;
 @property (strong, nonatomic) UIRefreshControl *refreshControl;
@@ -49,6 +51,10 @@
 
     self.navigationItem.rightBarButtonItem =  [[UIBarButtonItem alloc] initWithBarButtonSystemItem: UIBarButtonSystemItemCompose target:self action:@selector(compose)];
 
+    [self.tableView addInfiniteScrollingWithActionHandler:^{
+        [self fetchData];
+    }];
+    
 }
 
 -(void) compose {
@@ -71,13 +77,35 @@
 
 
 -(void) fetchData {
-    NSDictionary *dictionary = [[NSDictionary alloc] initWithObjectsAndKeys:[NSNumber numberWithInt:200], @"count", [NSNumber numberWithBool:YES], @"include_entities",nil];
+    NSMutableDictionary *dictionary = [[NSMutableDictionary alloc] initWithObjectsAndKeys:[NSNumber numberWithInt:20], @"count", [NSNumber numberWithBool:YES], @"include_entities",nil];
+    
+    if(self.tweets != nil){
+        Tweet *last = self.tweets.lastObject;
+        
+        [dictionary setObject:last.id_str forKey:@"max_id"];
+    }
+    
+
     [[TwitterClient sharedInstance] homeTimelineWithParams:dictionary completion:^(NSArray *tweets, NSError *error) {
         [self.refreshControl endRefreshing];
         [SVProgressHUD dismiss];
         if(tweets != nil){
-            self.tweets = [tweets mutableCopy];
-            [self.tableView reloadData];
+            if(self.tweets == nil){
+                self.tweets = [tweets mutableCopy];
+                [self.tableView reloadData];
+            }else {
+                int i = 0;
+                for(Tweet *ttweet in tweets){
+                    if(i==0){
+                        i++;
+                        continue;
+                    }
+                    [self.tweets addObject:ttweet];                        
+                }
+
+                [self.tableView.infiniteScrollingView stopAnimating];
+                [self.tableView reloadData];
+            }
         }
     }];
 

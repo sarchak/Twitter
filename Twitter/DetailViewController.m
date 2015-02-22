@@ -38,6 +38,10 @@
  
 }
 
+-(void) getConversations {
+    
+}
+
 -(void) viewWillAppear:(BOOL)animated {
     [super viewWillAppear:animated];
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(keyBoardWillShow:) name:UIKeyboardWillShowNotification object:nil];
@@ -68,8 +72,13 @@
 }
 
 
+-(void) tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
+    [self.comment resignFirstResponder];
+}
 
 - (IBAction)send:(id)sender {
+    self.comment.text = nil;
+    [self.comment resignFirstResponder];
 }
 
 - (void)didReceiveMemoryWarning {
@@ -79,7 +88,7 @@
 
 - (NSInteger) tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
     if(self.replies != nil){
-        return 1 + self.replies.count;
+        return 3 + self.replies.count;
     }
     return 3;
 }
