@@ -50,6 +50,10 @@
                     <constraint firstAttribute="centerY" secondItem="dJ4-7y-A9k" secondAttribute="centerY" id="rog-E2-MVz"/>
                 </constraints>
             </tableViewCellContentView>
+            <connections>
+                <outlet property="fcount" destination="dJ4-7y-A9k" id="YXn-0h-xe0"/>
+                <outlet property="rcount" destination="Bnb-f9-OvT" id="ldo-fU-PJf"/>
+            </connections>
         </tableViewCell>
     </objects>
 </document>

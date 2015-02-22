@@ -9,5 +9,7 @@
 #import <UIKit/UIKit.h>
 
 @interface StatsCell : UITableViewCell
+@property (weak, nonatomic) IBOutlet UILabel *rcount;
+@property (weak, nonatomic) IBOutlet UILabel *fcount;
 
 @end

@@ -12,6 +12,7 @@
 #import "TextCell.h"
 #import "UIImageView+AFNetworking.h"
 #import "NSDate+DateTools.h"
+#import "StatsCell.h"
 
 @interface DetailViewController ()
 @property (weak, nonatomic) IBOutlet UITableView *tableView;
@@ -35,7 +36,7 @@
     self.tableView.rowHeight = UITableViewAutomaticDimension;
     self.tableView.estimatedRowHeight = 250;
     self.tableView.tableFooterView = [[UIView alloc] init] ;
- 
+
 }
 
 -(void) getConversations {
@@ -116,7 +117,8 @@
         pcell.retweetButton.hidden = YES;
         
         pcell.retweetedLabel.hidden = YES;
-        cell = pcell;
+        pcell.rcount.hidden = YES;
+        pcell.fcount.hidden = YES;
         pcell.retweet.hidden = YES;
         
         cell = pcell;
@@ -127,6 +129,8 @@
         tcell.nameLabel.text = tweet.user.name;
         tcell.tweetLabel.text = tweet.text;
         tcell.retweet.hidden = YES;
+        tcell.rcount.hidden = YES;
+        tcell.fcount.hidden = YES;
         
         NSString *biggerImageUrl = [tweet.user.profileImageUrl stringByReplacingOccurrencesOfString:@"_normal" withString:@"_bigger"];
         [tcell.userImageView setImageWithURL:[NSURL URLWithString:biggerImageUrl]];
@@ -150,7 +154,10 @@
     if(indexPath.row == 0){
         cell = [self getCell];
     } else if(indexPath.row == 1){
-        cell = [tableView dequeueReusableCellWithIdentifier:@"StatsCell"];
+        StatsCell *scell = [tableView dequeueReusableCellWithIdentifier:@"StatsCell"];
+        scell.rcount.text = [NSString stringWithFormat:@"%ld", self.tweet.retweetCount];
+        scell.fcount.text = [NSString stringWithFormat:@"%ld", self.tweet.favoritesCount];
+        cell = scell;
     } else {
         cell = [tableView dequeueReusableCellWithIdentifier:@"ActionCell"];
     }
