@@ -47,12 +47,12 @@
     [SVProgressHUD show];
 
     
-    [self fetchData];
+    [self fetchData: YES];
 
     self.navigationItem.rightBarButtonItem =  [[UIBarButtonItem alloc] initWithBarButtonSystemItem: UIBarButtonSystemItemCompose target:self action:@selector(compose)];
 
     [self.tableView addInfiniteScrollingWithActionHandler:^{
-        [self fetchData];
+        [self fetchData:NO];
     }];
     
 }
@@ -76,13 +76,17 @@
 }
 
 
--(void) fetchData {
+-(void) fetchData: (BOOL) top {
     NSMutableDictionary *dictionary = [[NSMutableDictionary alloc] initWithObjectsAndKeys:[NSNumber numberWithInt:20], @"count", [NSNumber numberWithBool:YES], @"include_entities",nil];
     
-    if(self.tweets != nil){
-        Tweet *last = self.tweets.lastObject;
-        
-        [dictionary setObject:last.id_str forKey:@"max_id"];
+    if(self.tweets != nil || !top){
+        if(top){
+            Tweet *first = self.tweets.firstObject;
+            [dictionary setObject:first.id_str forKey:@"since_id"];
+        }else {
+            Tweet *last = self.tweets.lastObject;
+            [dictionary setObject:last.id_str forKey:@"max_id"];
+        }
     }
     
 
@@ -90,10 +94,12 @@
         [self.refreshControl endRefreshing];
         [SVProgressHUD dismiss];
         if(tweets != nil){
-            if(self.tweets == nil){
+            if(self.tweets == nil || top){
+                NSLog(@"Add to the top");
                 self.tweets = [tweets mutableCopy];
                 [self.tableView reloadData];
             }else {
+                NSLog(@"Add to the bottom");
                 int i = 0;
                 for(Tweet *ttweet in tweets){
                     if(i==0){
@@ -112,7 +118,7 @@
 }
 
 -(void) refreshTable {
-    [self fetchData];
+    [self fetchData:YES];
 }
 
 - (void)didReceiveMemoryWarning {

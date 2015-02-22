@@ -22,12 +22,12 @@
                         </constraints>
                     </imageView>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" verticalHuggingPriority="249" text="Michael Moran" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="g2N-0A-1Uk">
-                        <rect key="frame" x="72" y="18" width="115" height="25"/>
+                        <rect key="frame" x="72" y="18" width="115" height="26"/>
                         <fontDescription key="fontDescription" name="Avenir-Medium" family="Avenir" pointSize="17"/>
                         <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                         <nil key="highlightedColor"/>
                     </label>
-                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" text="Label" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="3sE-0s-AxC">
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalCompressionResistancePriority="740" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="3sE-0s-AxC">
                         <rect key="frame" x="191" y="23" width="30" height="17"/>
                         <fontDescription key="fontDescription" name="Avenir-Roman" family="Avenir" pointSize="12"/>
                         <color key="textColor" red="0.47604776069999999" green="0.43302370480000002" blue="0.48086144180000001" alpha="1" colorSpace="calibratedRGB"/>
@@ -39,7 +39,7 @@
                         <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                         <nil key="highlightedColor"/>
                     </label>
-                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="8hr" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ujJ-6d-y8O">
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" horizontalCompressionResistancePriority="752" text="8hr" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ujJ-6d-y8O">
                         <rect key="frame" x="294" y="21" width="18" height="17"/>
                         <fontDescription key="fontDescription" name="Avenir-Roman" family="Avenir" pointSize="12"/>
                         <color key="textColor" red="0.47604776069999999" green="0.43302370480000002" blue="0.48086144180000001" alpha="1" colorSpace="calibratedRGB"/>
@@ -153,6 +153,7 @@
                     <constraint firstItem="wel-mP-QCb" firstAttribute="top" secondItem="g2N-0A-1Uk" secondAttribute="bottom" constant="3.5" id="qfr-4n-4RH"/>
                     <constraint firstItem="veq-IZ-Uax" firstAttribute="top" secondItem="wel-mP-QCb" secondAttribute="bottom" constant="4" id="u8S-S3-JzX"/>
                     <constraint firstItem="wel-mP-QCb" firstAttribute="top" secondItem="g2N-0A-1Uk" secondAttribute="bottom" constant="3.5" id="xTk-BI-hbu"/>
+                    <constraint firstItem="ujJ-6d-y8O" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="3sE-0s-AxC" secondAttribute="trailing" constant="5" id="yPz-pu-fhy"/>
                     <constraint firstItem="lQH-Ua-2rv" firstAttribute="leading" secondItem="J0o-rz-Olg" secondAttribute="trailing" constant="2" id="yia-0f-2c6"/>
                     <constraint firstItem="wel-mP-QCb" firstAttribute="top" secondItem="g2N-0A-1Uk" secondAttribute="bottom" constant="3.5" id="yos-mO-N8w"/>
                 </constraints>
