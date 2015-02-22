@@ -20,7 +20,8 @@
 
 @interface PhotoCell : UITableViewCell <TTTAttributedLabelDelegate>
 @property (weak, nonatomic) IBOutlet UILabel *nameLabel;
-@property (weak, nonatomic) IBOutlet UILabel *tweetLabel;
+@property (weak, nonatomic) IBOutlet TTTAttributedLabel *tweetLabel;
+
 @property (weak, nonatomic) IBOutlet UIImageView *userImageView;
 @property (weak, nonatomic) IBOutlet UILabel *retweetedLabel;
 @property (weak, nonatomic) IBOutlet UILabel *rcount;

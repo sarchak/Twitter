@@ -160,7 +160,7 @@
         if(tweet.favorited){
             pcell.favoriteButton.imageView.image = [UIImage imageNamed:@"favorite_on"];
         }
-
+        pcell.tweetLabel.delegate = self;
         pcell.delegate = self;
     
         cell = pcell;

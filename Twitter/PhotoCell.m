@@ -7,7 +7,7 @@
 //
 
 #import "PhotoCell.h"
-
+#import "TTTAttributedLabel.h"
 @implementation PhotoCell
 
 - (void)awakeFromNib {
@@ -19,6 +19,8 @@
     UITapGestureRecognizer *tapGesture = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(handleSingleTap:)];
     tapGesture.numberOfTapsRequired = 1;
     [self.mediaImageView addGestureRecognizer:tapGesture];
+    self.tweetLabel.enabledTextCheckingTypes = NSTextCheckingTypeLink;
+    
 }
 
 - (void)setSelected:(BOOL)selected animated:(BOOL)animated {
