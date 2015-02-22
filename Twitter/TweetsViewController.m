@@ -220,9 +220,9 @@
             cell.retweetButton.alpha = 0;
             [UIView animateWithDuration:0.3 animations:^{
                 cell.retweetButton.alpha = 1;
-                [cell.retweetButton setImage:[UIImage imageNamed:@"retweet_animated"] forState:UIControlStateNormal];
+                [cell.retweetButton setImage:[UIImage imageNamed:@"retweet_on"] forState:UIControlStateNormal];
                 POPSpringAnimation *scaleAnimation = [POPSpringAnimation animationWithPropertyNamed:kPOPLayerScaleXY];
-                scaleAnimation.toValue = [NSValue valueWithCGSize:CGSizeMake(1.5, 1.5)];
+                scaleAnimation.toValue = [NSValue valueWithCGSize:CGSizeMake(1.3, 1.3)];
                 scaleAnimation.springBounciness = 10.f;
                 [cell.retweetButton.layer pop_addAnimation:scaleAnimation forKey:@"scaleAnim"];
             } completion:^(BOOL finished) {
@@ -237,9 +237,9 @@
             tweet.retweetCount = tweet.retweetCount + 1;
             [UIView animateWithDuration:0.3 animations:^{
                 cell.retweetButton.alpha = 1;
-                [cell.retweetButton setImage:[UIImage imageNamed:@"retweet_animated"] forState:UIControlStateNormal];
+                [cell.retweetButton setImage:[UIImage imageNamed:@"retweet"] forState:UIControlStateNormal];
                 POPSpringAnimation *scaleAnimation = [POPSpringAnimation animationWithPropertyNamed:kPOPLayerScaleXY];
-                scaleAnimation.toValue = [NSValue valueWithCGSize:CGSizeMake(2, 2)];
+                scaleAnimation.toValue = [NSValue valueWithCGSize:CGSizeMake(1.3, 1.3)];
                 scaleAnimation.springBounciness = 10.f;
                 [cell.retweetButton.layer pop_addAnimation:scaleAnimation forKey:@"scaleAnim"];
             } completion:^(BOOL finished) {
@@ -307,9 +307,9 @@
             cell.retweetButton.alpha = 0;
             [UIView animateWithDuration:0.3 animations:^{
                 cell.retweetButton.alpha = 1;
-                [cell.retweetButton setImage:[UIImage imageNamed:@"retweet_animated"] forState:UIControlStateNormal];
+                [cell.retweetButton setImage:[UIImage imageNamed:@"retweet_on"] forState:UIControlStateNormal];
                 POPSpringAnimation *scaleAnimation = [POPSpringAnimation animationWithPropertyNamed:kPOPLayerScaleXY];
-                scaleAnimation.toValue = [NSValue valueWithCGSize:CGSizeMake(1.5, 1.5)];
+                scaleAnimation.toValue = [NSValue valueWithCGSize:CGSizeMake(1.3, 1.3)];
                 scaleAnimation.springBounciness = 10.f;
                 [cell.retweetButton.layer pop_addAnimation:scaleAnimation forKey:@"scaleAnim"];
             } completion:^(BOOL finished) {
@@ -324,9 +324,9 @@
             tweet.retweetCount = tweet.retweetCount + 1;
             [UIView animateWithDuration:0.3 animations:^{
                 cell.retweetButton.alpha = 1;
-                [cell.retweetButton setImage:[UIImage imageNamed:@"retweet_animated"] forState:UIControlStateNormal];
+                [cell.retweetButton setImage:[UIImage imageNamed:@"retweet"] forState:UIControlStateNormal];
                 POPSpringAnimation *scaleAnimation = [POPSpringAnimation animationWithPropertyNamed:kPOPLayerScaleXY];
-                scaleAnimation.toValue = [NSValue valueWithCGSize:CGSizeMake(2, 2)];
+                scaleAnimation.toValue = [NSValue valueWithCGSize:CGSizeMake(1.3, 1.3)];
                 scaleAnimation.springBounciness = 10.f;
                 [cell.retweetButton.layer pop_addAnimation:scaleAnimation forKey:@"scaleAnim"];
             } completion:^(BOOL finished) {
