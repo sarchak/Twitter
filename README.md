@@ -1,7 +1,7 @@
 
 This is a basic twitter app to read and compose tweets the Twitter API.
 
-Time spent: 30
+Time spent: 30hrs
 
 ![Video Walkthrough](twitter_latest.gif)
 
