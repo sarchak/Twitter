@@ -15,23 +15,37 @@
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="AWZ-08-cmf">
-                    <rect key="frame" x="100" y="269" width="121" height="30"/>
+                    <rect key="frame" x="88" y="265" width="144" height="37"/>
+                    <fontDescription key="fontDescription" name="AvenirNext-Regular" family="Avenir Next" pointSize="18"/>
                     <state key="normal" title="Login with Twitter">
+                        <color key="titleColor" red="0.95373175379999997" green="0.94898681969999998" blue="0.95847668789999996" alpha="1" colorSpace="calibratedRGB"/>
                         <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                     </state>
                     <connections>
                         <action selector="OnLogin:" destination="-1" eventType="touchUpInside" id="5IA-WV-zCO"/>
                     </connections>
                 </button>
+                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Twitter_logo_white_48.png" translatesAutoresizingMaskIntoConstraints="NO" id="K3Z-ft-6OY">
+                    <rect key="frame" x="136" y="197" width="48" height="48"/>
+                    <constraints>
+                        <constraint firstAttribute="width" constant="48" id="iuE-uW-APN"/>
+                        <constraint firstAttribute="height" constant="48" id="kpD-d5-YHh"/>
+                    </constraints>
+                </imageView>
             </subviews>
-            <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+            <color key="backgroundColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="calibratedRGB"/>
             <constraints>
+                <constraint firstAttribute="centerX" secondItem="K3Z-ft-6OY" secondAttribute="centerX" id="ETY-uP-Jh4"/>
                 <constraint firstAttribute="centerY" secondItem="AWZ-08-cmf" secondAttribute="centerY" id="GyZ-E1-J0j"/>
                 <constraint firstAttribute="centerX" secondItem="AWZ-08-cmf" secondAttribute="centerX" id="KeB-dk-zSM"/>
+                <constraint firstItem="AWZ-08-cmf" firstAttribute="top" secondItem="K3Z-ft-6OY" secondAttribute="bottom" constant="20" id="L51-YX-bQp"/>
             </constraints>
             <point key="canvasLocation" x="413" y="387"/>
         </view>
     </objects>
+    <resources>
+        <image name="Twitter_logo_white_48.png" width="48" height="48"/>
+    </resources>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">
         <simulatedStatusBarMetrics key="statusBar"/>
         <simulatedOrientationMetrics key="orientation"/>

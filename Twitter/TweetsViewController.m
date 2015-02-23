@@ -25,6 +25,7 @@
 @property (strong, nonatomic) UIRefreshControl *refreshControl;
 @property (nonatomic,strong) NSMutableArray *tweets;
 @property (nonatomic, strong) WKWebView *webView;
+@property (nonatomic, strong) UIImageView *popUpImageView;
 @end
 
 @implementation TweetsViewController
@@ -50,11 +51,16 @@
     [self fetchData: YES];
 
     self.navigationItem.rightBarButtonItem =  [[UIBarButtonItem alloc] initWithBarButtonSystemItem: UIBarButtonSystemItemCompose target:self action:@selector(compose)];
+    self.navigationItem.leftBarButtonItem =  [[UIBarButtonItem alloc] initWithTitle:@"Logout" style:UIBarButtonItemStyleDone target:self action:@selector(logout)];
 
     [self.tableView addInfiniteScrollingWithActionHandler:^{
         [self fetchData:NO];
     }];
     
+}
+
+-(void) logout {
+    [User logOut];
 }
 
 -(void) compose {
@@ -76,16 +82,22 @@
 }
 
 
+
 -(void) fetchData: (BOOL) top {
     NSMutableDictionary *dictionary = [[NSMutableDictionary alloc] initWithObjectsAndKeys:[NSNumber numberWithInt:20], @"count", [NSNumber numberWithBool:YES], @"include_entities",nil];
     
     if(self.tweets != nil || !top){
         if(top){
             Tweet *first = self.tweets.firstObject;
-            [dictionary setObject:first.id_str forKey:@"since_id"];
+            if(first != nil){
+                [dictionary setObject:first.id_str forKey:@"since_id"];
+            }
         }else {
             Tweet *last = self.tweets.lastObject;
-            [dictionary setObject:last.id_str forKey:@"max_id"];
+            if(last != nil){
+                [dictionary setObject:last.id_str forKey:@"max_id"];
+            }
+
         }
     }
     
@@ -96,7 +108,9 @@
         if(tweets != nil){
             if(self.tweets == nil || top){
                 NSLog(@"Add to the top");
+                NSArray* temp = self.tweets;
                 self.tweets = [tweets mutableCopy];
+                [self.tweets addObjectsFromArray:temp];
                 [self.tableView reloadData];
             }else {
                 NSLog(@"Add to the bottom");
@@ -423,19 +437,18 @@
     [self togglePhotoCell:tweet forCell:photoCell type:@"favorite"];
 }
 
+
 -(void) photoCell:(PhotoCell *)photoCell imageTapped:(UIImageView *)imageView {
     NSIndexPath *indexPath = [self.tableView indexPathForCell:photoCell];
     Tweet *tweet = self.tweets[indexPath.row];
     UIImageView *imgView = [[UIImageView alloc] init];
+
     imgView.userInteractionEnabled = YES;
     imgView.contentMode = UIViewContentModeScaleAspectFill;
     [imgView setImageWithURL:[NSURL URLWithString:tweet.media.mediaUrl]];
     [self.view addSubview:imgView];
-//    UISwipeGestureRecognizer *swipeGesture = [[UISwipeGestureRecognizer alloc] initWithTarget:self action:@selector(handleSwipe:)];
-//    swipeGesture.direction = UISwipeGestureRecognizerDirectionLeft|UISwipeGestureRecognizerDirectionLeft|UISwipeGestureRecognizerDirectionDown|UISwipeGestureRecognizerDirectionUp;
-//    [imgView addGestureRecognizer:swipeGesture];
-
-    UITapGestureRecognizer *tapGesture = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(handleSwipe:)];
+    self.popUpImageView = imgView;
+    UITapGestureRecognizer *tapGesture = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(handleTap:)];
     tapGesture.numberOfTapsRequired = 1;
     [imgView addGestureRecognizer:tapGesture];
     
@@ -446,9 +459,12 @@
     [imgView pop_addAnimation:anim forKey:@"scale"];
 }
 
--(void) handleSwipe:(UIImageView*) imageView {
-
-    [imageView removeFromSuperview];
+-(void) handleTap:(UIImageView*) imageView {
+    [UIView animateWithDuration:0.5 animations:^{
+        self.webView.alpha = 0;
+        [self.popUpImageView removeFromSuperview];
+    }];
+    
 }
 
 -(void)textCell:(TextCell *)textCell reply:(UIButton *)button {
