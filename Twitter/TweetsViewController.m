@@ -254,6 +254,11 @@
                 [cell.retweetButton setImage:[UIImage imageNamed:@"retweet"] forState:UIControlStateNormal];
             }];
         } else {
+            NSDictionary *params = @{@"id":tweet.id_str};
+            [[TwitterClient sharedInstance] retweetWithParams:params completion:^(NSError *error) {
+                
+            }];
+            
             cell.retweetButton.alpha = 0;
             tweet.retweetCount = tweet.retweetCount + 1;
             [UIView animateWithDuration:0.3 animations:^{
@@ -279,6 +284,10 @@
     }
     if([type isEqual: @"favorite"]){
         if(tweet.favorited){
+            NSDictionary *params = @{@"id":tweet.id_str};
+            [[TwitterClient sharedInstance] unFavoriteWithParams:params completion:^(NSError *error) {
+                
+            }];
             tweet.favoritesCount = tweet.favoritesCount - 1;
             cell.favoriteButton.alpha = 0;
             [UIView animateWithDuration:0.3 animations:^{
@@ -296,6 +305,11 @@
                 [cell.favoriteButton setImage:[UIImage imageNamed:@"favorite"] forState:UIControlStateNormal];
             }];
         } else {
+            NSDictionary *params = @{@"id":tweet.id_str};
+            [[TwitterClient sharedInstance] favoriteWithParams:params completion:^(NSError *error) {
+                
+            }];
+            
             cell.favoriteButton.alpha = 0;
             [UIView animateWithDuration:0.3 animations:^{
                 cell.favoriteButton.alpha = 1;
@@ -341,6 +355,10 @@
                 [cell.retweetButton setImage:[UIImage imageNamed:@"retweet"] forState:UIControlStateNormal];
             }];
         } else {
+            NSDictionary *params = @{@"id":tweet.id_str};
+            [[TwitterClient sharedInstance] retweetWithParams:params completion:^(NSError *error) {
+                
+            }];
             cell.retweetButton.alpha = 0;
             tweet.retweetCount = tweet.retweetCount + 1;
             [UIView animateWithDuration:0.3 animations:^{
@@ -366,6 +384,10 @@
     }
     if([type isEqual: @"favorite"]){
         if(tweet.favorited){
+            NSDictionary *params = @{@"id":tweet.id_str};
+            [[TwitterClient sharedInstance] unFavoriteWithParams:params completion:^(NSError *error) {
+                
+            }];
             
             tweet.favoritesCount = tweet.favoritesCount - 1;
             cell.favoriteButton.alpha = 0;
@@ -377,6 +399,7 @@
                 scaleAnimation.springBounciness = 10.f;
                 [cell.favoriteButton.layer pop_addAnimation:scaleAnimation forKey:@"scaleAnim"];
             } completion:^(BOOL finished) {
+                
                 POPSpringAnimation *scaleAnimation = [POPSpringAnimation animationWithPropertyNamed:kPOPLayerScaleXY];
                 scaleAnimation.toValue = [NSValue valueWithCGSize:CGSizeMake(1.0, 1.0)];
                 scaleAnimation.springBounciness = 10.f;
@@ -384,6 +407,11 @@
                 [cell.favoriteButton setImage:[UIImage imageNamed:@"favorite"] forState:UIControlStateNormal];
             }];
         } else {
+            NSDictionary *params = @{@"id":tweet.id_str};
+            [[TwitterClient sharedInstance] favoriteWithParams:params completion:^(NSError *error) {
+                
+            }];
+            
             cell.favoriteButton.alpha = 0;
             [UIView animateWithDuration:0.3 animations:^{
                 cell.favoriteButton.alpha = 1;

@@ -100,7 +100,8 @@ NSString *const baseUrl = @"https://api.twitter.com";
 -(void)retweetWithParams:(NSDictionary*) params completion:(void (^)(NSError *error))completion {
     
     NSLog(@"%@", params);
-    [self POST:@"1.1/statuses/retweet/:id.json" parameters:params success:^(AFHTTPRequestOperation *operation, id responseObject) {
+    NSString *url = [NSString stringWithFormat:@"1.1/statuses/retweet/%@.json", params[@"id"]];
+    [self POST:url parameters:params success:^(AFHTTPRequestOperation *operation, id responseObject) {
         completion(nil);
     } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
         completion(error);
