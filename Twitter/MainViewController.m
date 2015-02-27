@@ -73,6 +73,7 @@ NSString *const MenuClosed = @"MenuClosed";
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
+    
 }
 
 
@@ -109,19 +110,13 @@ NSString *const MenuClosed = @"MenuClosed";
     [self closeMenu];
     [self reset:0];
     self.menuOpen = NO;
-    
+    [[NSNotificationCenter defaultCenter] postNotificationName:MenuClosed object:nil];
 }
 - (IBAction)viewPanned:(UIPanGestureRecognizer *)sender {
     if(sender.state == UIGestureRecognizerStateEnded){
         [self menu];
     }
     
-}
-- (IBAction)tapped:(UITapGestureRecognizer *)sender {
-//    if(self.menuOpen){
-//        [self menu];        
-//    }
-
 }
 
 @end

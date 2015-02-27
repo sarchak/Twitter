@@ -557,30 +557,30 @@
     
 }
 
-//-(void) menuOpened {
-//    self.menuOpen = YES;
-//    NSLog(@"Menu Opened");
-////    self.tableView.userInteractionEnabled = NO;
-//}
-//
-//-(void) menuClosed {
-//    self.menuOpen = YES;
-//    NSLog(@"Menu Closed");
-////    self.tableView.userInteractionEnabled = YES;
-//}
-//
-//-(void) viewWillAppear:(BOOL)animated {
-//    [super viewWillAppear:animated];
-//    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(menuOpened) name:MenuOpened object:nil];
-//    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(menuClosed) name:MenuClosed object:nil];
-//    
-//}
-//
-//-(void) viewWillDisappear:(BOOL)animated {
-//    [super viewWillDisappear:animated];
-//    [[NSNotificationCenter defaultCenter] self];
-//
-//}
+-(void) menuOpened {
+    self.menuOpen = YES;
+    NSLog(@"Menu Opened");
+    self.tableView.userInteractionEnabled = NO;
+}
+
+-(void) menuClosed {
+    self.menuOpen = NO;
+    NSLog(@"Menu Closed");
+    self.tableView.userInteractionEnabled = YES;
+}
+
+-(void) viewWillAppear:(BOOL)animated {
+    [super viewWillAppear:animated];
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(menuOpened) name:MenuOpened object:nil];
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(menuClosed) name:MenuClosed object:nil];
+    
+}
+
+-(void) viewWillDisappear:(BOOL)animated {
+    [super viewWillDisappear:animated];
+    [[NSNotificationCenter defaultCenter] removeObserver:self name:MenuOpened object:nil];
+    [[NSNotificationCenter defaultCenter] removeObserver:self name:MenuClosed object:nil];
+}
 
 
 @end

@@ -21,7 +21,6 @@
                     <gestureRecognizers/>
                     <connections>
                         <outletCollection property="gestureRecognizers" destination="UlO-BR-AF7" appends="YES" id="Rl5-0O-1wa"/>
-                        <outletCollection property="gestureRecognizers" destination="tpM-Kp-Xfk" appends="YES" id="txc-Id-m8b"/>
                     </connections>
                 </view>
             </subviews>
@@ -39,11 +38,6 @@
                 <action selector="viewPanned:" destination="-1" id="esr-kI-v4i"/>
             </connections>
         </panGestureRecognizer>
-        <tapGestureRecognizer id="tpM-Kp-Xfk">
-            <connections>
-                <action selector="tapped:" destination="-1" id="D7G-Nv-h5Y"/>
-            </connections>
-        </tapGestureRecognizer>
     </objects>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">
         <simulatedStatusBarMetrics key="statusBar"/>
