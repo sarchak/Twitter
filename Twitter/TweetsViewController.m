@@ -20,12 +20,15 @@
 #import <POP/POP.h>
 #import "UIScrollView+SVInfiniteScrolling.h"
 #import <WebKit/WebKit.h>
+#import "MainViewController.h"
+
 @interface TweetsViewController ()
 @property (weak, nonatomic) IBOutlet UITableView *tableView;
 @property (strong, nonatomic) UIRefreshControl *refreshControl;
 @property (nonatomic,strong) NSMutableArray *tweets;
 @property (nonatomic, strong) WKWebView *webView;
 @property (nonatomic, strong) UIImageView *popUpImageView;
+@property (assign, nonatomic) BOOL menuOpen;
 @end
 
 @implementation TweetsViewController
@@ -231,6 +234,8 @@
     dvc.tweet = tweet;
     [self.navigationController pushViewController:dvc animated:YES];
 }
+
+
 
 
 -(void) togglePhotoCell:(Tweet*) tweet forCell: (PhotoCell*)cell type: (NSString*) type {
@@ -551,4 +556,31 @@
     }];
     
 }
+
+//-(void) menuOpened {
+//    self.menuOpen = YES;
+//    NSLog(@"Menu Opened");
+////    self.tableView.userInteractionEnabled = NO;
+//}
+//
+//-(void) menuClosed {
+//    self.menuOpen = YES;
+//    NSLog(@"Menu Closed");
+////    self.tableView.userInteractionEnabled = YES;
+//}
+//
+//-(void) viewWillAppear:(BOOL)animated {
+//    [super viewWillAppear:animated];
+//    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(menuOpened) name:MenuOpened object:nil];
+//    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(menuClosed) name:MenuClosed object:nil];
+//    
+//}
+//
+//-(void) viewWillDisappear:(BOOL)animated {
+//    [super viewWillDisappear:animated];
+//    [[NSNotificationCenter defaultCenter] self];
+//
+//}
+
+
 @end

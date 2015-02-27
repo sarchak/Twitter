@@ -10,12 +10,15 @@
 #import "User.h"
 #import "UIImageView+AFNetworking.h"
 #import "TwitterClient.h"
+#import "MainViewController.h"
+
 @interface ComposeViewController ()
 @property (weak, nonatomic) IBOutlet UILabel *screenName;
 @property (nonatomic,strong) UIBarButtonItem *count;
 @property (weak, nonatomic) IBOutlet UILabel *name;
 @property (weak, nonatomic) IBOutlet UITextView *inputText;
 @property (weak, nonatomic) IBOutlet UIImageView *profileImageView;
+@property (assign, nonatomic) BOOL menuOpen;
 @end
 
 @implementation ComposeViewController
@@ -42,6 +45,10 @@
     UIBarButtonItem *tweet = [[UIBarButtonItem alloc] initWithTitle:@"Tweet" style:UIBarButtonItemStylePlain target:self action:@selector(tweet)];
     self.navigationItem.rightBarButtonItems = @[tweet, self.count];
     [self.inputText setText:self.text];
+
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(menuOpened) name:MenuOpened object:nil];
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(menuClosed) name:MenuClosed object:nil];
+
 }
 
 - (void)didReceiveMemoryWarning {
@@ -84,5 +91,29 @@
     
     [UIView setAnimationsEnabled:YES];
 
+}
+
+
+-(void) menuOpened {
+    self.menuOpen = YES;
+    NSLog(@"Menu Opened");
+}
+
+-(void) menuClosed {
+    self.menuOpen = YES;
+    NSLog(@"Menu Closed");
+}
+
+-(void) viewWillAppear:(BOOL)animated {
+    [super viewWillAppear:animated];
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(menuOpened) name:MenuOpened object:nil];
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(menuClosed) name:MenuClosed object:nil];
+    
+}
+
+-(void) viewWillDisappear:(BOOL)animated {
+    [super viewWillDisappear:animated];
+    [[NSNotificationCenter defaultCenter] removeObserver:self forKeyPath:MenuOpened];
+    [[NSNotificationCenter defaultCenter] removeObserver:self forKeyPath:MenuClosed];
 }
 @end

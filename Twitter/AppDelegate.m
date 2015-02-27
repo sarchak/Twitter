@@ -12,6 +12,9 @@
 #import "User.h"
 #import "Tweet.h"
 #import "TweetsViewController.h"
+#import "SideMenuViewController.h"
+#import "MainViewController.h"
+#import "Chameleon.h"
 
 @interface AppDelegate ()
 
@@ -26,22 +29,33 @@
     
     LoginViewController *lvc = [[LoginViewController alloc] init];
     TweetsViewController *tvc = [[TweetsViewController alloc] init];
-    UINavigationController *nvc = nil;
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(userDidLogout) name:UserDidLogoutNotification object:nil];
+
+    
+    SideMenuViewController *svc = [[SideMenuViewController alloc] init];
+    MainViewController *mvc = [[MainViewController alloc] init];
+    svc.delegate = mvc;
+    
+    UINavigationController *snvc = [[UINavigationController alloc] initWithRootViewController:mvc];
+    
+    
     if ([User currentUser] != nil){
-        nvc = [[UINavigationController alloc] initWithRootViewController:tvc];
+        mvc.viewControllers = @[tvc,svc];
     } else {
-        nvc = [[UINavigationController alloc] initWithRootViewController:lvc];
+        mvc.viewControllers = @[lvc,svc];
     }
 
     UINavigationBar *navBar = [UINavigationBar appearance];
-    [navBar setBarTintColor:[UIColor colorWithRed:85.0/255 green:172.0/255 blue:238.0/255 alpha:1.0]];
+//    [navBar setBarTintColor:[UIColor colorWithRed:85.0/255 green:172.0/255 blue:238.0/255 alpha:1.0]];
+    [navBar setBarTintColor:[UIColor flatSkyBlueColor]];
     [navBar setTitleTextAttributes:@{NSForegroundColorAttributeName : [UIColor whiteColor]}];
     
     [navBar setTintColor:[UIColor whiteColor]];
 
     
-    self.window.rootViewController = nvc;
+    self.window.rootViewController = snvc;
+    
+
     [self.window makeKeyAndVisible];
     return YES;
 }

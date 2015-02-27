@@ -23,6 +23,7 @@ PODS:
   - BDBOAuth1Manager (1.5.0):
     - AFNetworking/NSURLConnection (~> 2.5.0)
     - AFNetworking/NSURLSession (~> 2.5.0)
+  - ChameleonFramework (1.1.2)
   - DateTools (1.5.0)
   - pop (1.0.7)
   - SVProgressHUD (1.1.2)
@@ -32,6 +33,7 @@ PODS:
 DEPENDENCIES:
   - AFNetworking
   - BDBOAuth1Manager (~> 1.5)
+  - ChameleonFramework
   - DateTools
   - pop (~> 1.0)
   - SVProgressHUD (~> 1.1)
@@ -41,6 +43,7 @@ DEPENDENCIES:
 SPEC CHECKSUMS:
   AFNetworking: 8bee59492a6ff15d69130efa4d0dc67e0094a52a
   BDBOAuth1Manager: 274574557077abc873fc5688abe8b991e782749c
+  ChameleonFramework: 5d34a29b6db60594a9998f6dfdffa8ac5f05979a
   DateTools: 7df78f0c4719eb28cfd2d58a90fafd036e73156c
   pop: 2f14a1ea61339767af9e66741b418c831b3844df
   SVProgressHUD: da7a49e789af645d9279ffbca62318945a832438
