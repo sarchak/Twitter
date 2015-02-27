@@ -229,6 +229,7 @@
 }
 
 -(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
+    NSLog(@"Tapped in tweets");
     Tweet *tweet = self.tweets[indexPath.row];
     DetailViewController *dvc = [[DetailViewController alloc] init];
     dvc.tweet = tweet;
