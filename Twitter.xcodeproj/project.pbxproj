@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		5666E2701AA2520F00ACC8FE /* HeaderViewWithImage.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5666E26F1AA2520F00ACC8FE /* HeaderViewWithImage.xib */; };
+		5666E2731AA2522400ACC8FE /* HeaderViewWithImage.m in Sources */ = {isa = PBXBuildFile; fileRef = 5666E2721AA2522400ACC8FE /* HeaderViewWithImage.m */; };
 		5682A6FA1A965F2700FFF6D3 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 5682A6F91A965F2700FFF6D3 /* main.m */; };
 		5682A6FD1A965F2700FFF6D3 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 5682A6FC1A965F2700FFF6D3 /* AppDelegate.m */; };
 		5682A7051A965F2700FFF6D3 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 5682A7041A965F2700FFF6D3 /* Images.xcassets */; };
@@ -30,8 +32,6 @@
 		56BF55E01AA17284007BF4E4 /* HeaderCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 56BF55DE1AA17284007BF4E4 /* HeaderCell.m */; };
 		56BF55E11AA17284007BF4E4 /* HeaderCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 56BF55DF1AA17284007BF4E4 /* HeaderCell.xib */; };
 		56BF55E31AA18143007BF4E4 /* bkg.jpeg in Resources */ = {isa = PBXBuildFile; fileRef = 56BF55E21AA18143007BF4E4 /* bkg.jpeg */; };
-		56BF55E61AA1A336007BF4E4 /* HeaderView.m in Sources */ = {isa = PBXBuildFile; fileRef = 56BF55E51AA1A336007BF4E4 /* HeaderView.m */; };
-		56BF55E81AA1A348007BF4E4 /* HeaderView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 56BF55E71AA1A348007BF4E4 /* HeaderView.xib */; };
 		56DED6271A96A137007FB416 /* Media.m in Sources */ = {isa = PBXBuildFile; fileRef = 56DED6261A96A137007FB416 /* Media.m */; };
 		56DED62C1A96A977007FB416 /* TextCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 56DED62A1A96A977007FB416 /* TextCell.m */; };
 		56DED62D1A96A977007FB416 /* TextCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 56DED62B1A96A977007FB416 /* TextCell.xib */; };
@@ -62,6 +62,9 @@
 /* Begin PBXFileReference section */
 		259559976403FA84CABE8A97 /* Pods.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.debug.xcconfig; path = "Pods/Target Support Files/Pods/Pods.debug.xcconfig"; sourceTree = "<group>"; };
 		39440978AFF7F0C19CAC9591 /* Pods.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.release.xcconfig; path = "Pods/Target Support Files/Pods/Pods.release.xcconfig"; sourceTree = "<group>"; };
+		5666E26F1AA2520F00ACC8FE /* HeaderViewWithImage.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = HeaderViewWithImage.xib; sourceTree = "<group>"; };
+		5666E2711AA2522400ACC8FE /* HeaderViewWithImage.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HeaderViewWithImage.h; sourceTree = "<group>"; };
+		5666E2721AA2522400ACC8FE /* HeaderViewWithImage.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HeaderViewWithImage.m; sourceTree = "<group>"; };
 		5682A6F41A965F2700FFF6D3 /* Twitter.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Twitter.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		5682A6F81A965F2700FFF6D3 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		5682A6F91A965F2700FFF6D3 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
@@ -100,9 +103,6 @@
 		56BF55DE1AA17284007BF4E4 /* HeaderCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HeaderCell.m; sourceTree = "<group>"; };
 		56BF55DF1AA17284007BF4E4 /* HeaderCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = HeaderCell.xib; sourceTree = "<group>"; };
 		56BF55E21AA18143007BF4E4 /* bkg.jpeg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = bkg.jpeg; sourceTree = "<group>"; };
-		56BF55E41AA1A336007BF4E4 /* HeaderView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HeaderView.h; sourceTree = "<group>"; };
-		56BF55E51AA1A336007BF4E4 /* HeaderView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HeaderView.m; sourceTree = "<group>"; };
-		56BF55E71AA1A348007BF4E4 /* HeaderView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = HeaderView.xib; sourceTree = "<group>"; };
 		56DED6251A96A137007FB416 /* Media.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Media.h; sourceTree = "<group>"; };
 		56DED6261A96A137007FB416 /* Media.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Media.m; sourceTree = "<group>"; };
 		56DED6291A96A977007FB416 /* TextCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TextCell.h; sourceTree = "<group>"; };
@@ -273,9 +273,9 @@
 				56DED63D1A971462007FB416 /* ActionCell.h */,
 				56DED63E1A971462007FB416 /* ActionCell.m */,
 				56DED63F1A971462007FB416 /* ActionCell.xib */,
-				56BF55E41AA1A336007BF4E4 /* HeaderView.h */,
-				56BF55E51AA1A336007BF4E4 /* HeaderView.m */,
-				56BF55E71AA1A348007BF4E4 /* HeaderView.xib */,
+				5666E26F1AA2520F00ACC8FE /* HeaderViewWithImage.xib */,
+				5666E2711AA2522400ACC8FE /* HeaderViewWithImage.h */,
+				5666E2721AA2522400ACC8FE /* HeaderViewWithImage.m */,
 			);
 			name = Cells;
 			sourceTree = "<group>";
@@ -392,9 +392,9 @@
 				56DED62D1A96A977007FB416 /* TextCell.xib in Resources */,
 				569818C91AA033E40020D509 /* MainViewController.xib in Resources */,
 				56DED63C1A971368007FB416 /* StatsCell.xib in Resources */,
+				5666E2701AA2520F00ACC8FE /* HeaderViewWithImage.xib in Resources */,
 				5682A7051A965F2700FFF6D3 /* Images.xcassets in Resources */,
 				5682A7221A965F7B00FFF6D3 /* LoginViewController.xib in Resources */,
-				56BF55E81AA1A348007BF4E4 /* HeaderView.xib in Resources */,
 				569818CE1AA0345E0020D509 /* SideMenuViewController.xib in Resources */,
 				56DED6411A971462007FB416 /* ActionCell.xib in Resources */,
 			);
@@ -454,11 +454,11 @@
 				56DED6271A96A137007FB416 /* Media.m in Sources */,
 				56DED62C1A96A977007FB416 /* TextCell.m in Sources */,
 				5682A6FD1A965F2700FFF6D3 /* AppDelegate.m in Sources */,
+				5666E2731AA2522400ACC8FE /* HeaderViewWithImage.m in Sources */,
 				5682A72C1A9669F600FFF6D3 /* Tweet.m in Sources */,
 				56DED6311A96F4D6007FB416 /* PhotoCell.m in Sources */,
 				56DED6361A970E64007FB416 /* DetailViewController.m in Sources */,
 				5682A6FA1A965F2700FFF6D3 /* main.m in Sources */,
-				56BF55E61AA1A336007BF4E4 /* HeaderView.m in Sources */,
 				56BF55DB1AA1723E007BF4E4 /* ProfileViewController.m in Sources */,
 				56DED6401A971462007FB416 /* ActionCell.m in Sources */,
 				56DED6491A971F48007FB416 /* ComposeViewController.m in Sources */,

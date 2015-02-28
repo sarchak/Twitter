@@ -24,6 +24,11 @@
 			<key>isShown</key>
 			<false/>
 		</dict>
+		<key>Pods-PureLayout.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+		</dict>
 		<key>Pods-SVProgressHUD.xcscheme</key>
 		<dict>
 			<key>isShown</key>
@@ -35,6 +40,11 @@
 			<false/>
 		</dict>
 		<key>Pods-TTTAttributedLabel.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+		</dict>
+		<key>Pods-VGParallaxHeader.xcscheme</key>
 		<dict>
 			<key>isShown</key>
 			<false/>
@@ -52,47 +62,57 @@
 	</dict>
 	<key>SuppressBuildableAutocreation</key>
 	<dict>
-		<key>203714E2E588B83BF23D7BEC</key>
+		<key>09CDF644CC1D9FF505F5A637</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>4011DBC24B6D09E4C1EE4572</key>
+		<key>19D672D848D20FF4AC921F9E</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>4E42C1870FED4FCED61ED2D8</key>
+		<key>465F9E00BE65C117C0E9CDED</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>515C806180ECBB8248491F68</key>
+		<key>5EB6A10DA0524FE2016E4852</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>7F11F1F48FB5CF56F5593368</key>
+		<key>6F07953F60E03DB902269EDB</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>ACA257F20759A1D7D95D44A6</key>
+		<key>750B5ECFA71DF3880A0C152C</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>CE20B37C610A3F779D5DEE43</key>
+		<key>88273F1141575E5AB74FE3CA</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>DE61B6BBA3989F94EA1CC32D</key>
+		<key>913FB3747508F402768ED85B</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>EDFEF577FBDCF47F06C2668E</key>
+		<key>927FD9D2B94740307F243E36</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>BCF06F1D92D5C0C27CE739AA</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>F74203591658E7E6A7F2A1FE</key>
 		<dict>
 			<key>primary</key>
 			<true/>

@@ -26,9 +26,12 @@ PODS:
   - ChameleonFramework (1.1.2)
   - DateTools (1.5.0)
   - pop (1.0.7)
+  - PureLayout (2.0.5)
   - SVProgressHUD (1.1.2)
   - SVPullToRefresh (0.4.1)
   - TTTAttributedLabel (1.13.2)
+  - VGParallaxHeader (0.0.6):
+    - PureLayout
 
 DEPENDENCIES:
   - AFNetworking
@@ -39,6 +42,7 @@ DEPENDENCIES:
   - SVProgressHUD (~> 1.1)
   - SVPullToRefresh
   - TTTAttributedLabel
+  - VGParallaxHeader
 
 SPEC CHECKSUMS:
   AFNetworking: 8bee59492a6ff15d69130efa4d0dc67e0094a52a
@@ -46,8 +50,10 @@ SPEC CHECKSUMS:
   ChameleonFramework: 5d34a29b6db60594a9998f6dfdffa8ac5f05979a
   DateTools: 7df78f0c4719eb28cfd2d58a90fafd036e73156c
   pop: 2f14a1ea61339767af9e66741b418c831b3844df
+  PureLayout: 63a3257320223e8edddcd3afb407445f85a6bf74
   SVProgressHUD: da7a49e789af645d9279ffbca62318945a832438
   SVPullToRefresh: d5161ebc833a38b465364412e5e307ca80bbb190
   TTTAttributedLabel: 7c4592f9a806badb8b48dc634cb9800447c51594
+  VGParallaxHeader: 769a25b8392c4d5565c43103ea98c5c84f133bd6
 
 COCOAPODS: 0.36.0.beta.2

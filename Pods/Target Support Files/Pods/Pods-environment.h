@@ -66,6 +66,12 @@
 #define COCOAPODS_VERSION_MINOR_DateTools 5
 #define COCOAPODS_VERSION_PATCH_DateTools 0
 
+// PureLayout
+#define COCOAPODS_POD_AVAILABLE_PureLayout
+#define COCOAPODS_VERSION_MAJOR_PureLayout 2
+#define COCOAPODS_VERSION_MINOR_PureLayout 0
+#define COCOAPODS_VERSION_PATCH_PureLayout 5
+
 // SVProgressHUD
 #define COCOAPODS_POD_AVAILABLE_SVProgressHUD
 #define COCOAPODS_VERSION_MAJOR_SVProgressHUD 1
@@ -83,6 +89,12 @@
 #define COCOAPODS_VERSION_MAJOR_TTTAttributedLabel 1
 #define COCOAPODS_VERSION_MINOR_TTTAttributedLabel 13
 #define COCOAPODS_VERSION_PATCH_TTTAttributedLabel 2
+
+// VGParallaxHeader
+#define COCOAPODS_POD_AVAILABLE_VGParallaxHeader
+#define COCOAPODS_VERSION_MAJOR_VGParallaxHeader 0
+#define COCOAPODS_VERSION_MINOR_VGParallaxHeader 0
+#define COCOAPODS_VERSION_PATCH_VGParallaxHeader 6
 
 // pop
 #define COCOAPODS_POD_AVAILABLE_pop
