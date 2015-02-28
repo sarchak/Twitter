@@ -15,5 +15,9 @@
 @property (weak, nonatomic) IBOutlet UILabel *tweetCount;
 @property (weak, nonatomic) IBOutlet UILabel *followingCount;
 @property (weak, nonatomic) IBOutlet UILabel *followersCount;
+@property (weak, nonatomic) IBOutlet UIImageView *headerImageView;
+@property (weak, nonatomic) IBOutlet UIImageView *profileImageView;
+@property (weak, nonatomic) IBOutlet NSLayoutConstraint *height;
 
+@property (weak, nonatomic) IBOutlet NSLayoutConstraint *userHeight;
 @end
