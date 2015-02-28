@@ -15,6 +15,10 @@
 //    self.tweetLabel.preferredMaxLayoutWidth =  self.tweetLabel.frame.size.width;
     self.userImageView.layer.cornerRadius = 5.0;
     self.tweetLabel.enabledTextCheckingTypes = NSTextCheckingTypeLink;
+    self.userImageView.userInteractionEnabled = YES;
+    UITapGestureRecognizer *gesture = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(imageTapped)];
+    [self.userImageView addGestureRecognizer:gesture];
+    
 }
 
 - (void)setSelected:(BOOL)selected animated:(BOOL)animated {
@@ -28,6 +32,10 @@
     self.tweetLabel.preferredMaxLayoutWidth =  self.tweetLabel.frame.size.width;
 }
 
+-(void) imageTapped {
+    NSLog(@"Image tapped");
+    [self.delegate textCell:self userProfileTapped:nil];
+}
 
 - (IBAction)reply:(id)sender {
     [self.delegate textCell:self reply:sender];

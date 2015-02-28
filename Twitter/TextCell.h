@@ -14,6 +14,7 @@
 -(void) textCell:(TextCell*) textCell  favorite: (UIButton*) button;
 -(void) textCell:(TextCell*) textCell  retweet: (UIButton*) button;
 -(void) textCell:(TextCell*) textCell  reply: (UIButton*) button;
+-(void) textCell:(TextCell *)textCell userProfileTapped:(UIButton *)button;
 @end
 
 

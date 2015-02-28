@@ -21,6 +21,7 @@
 #import "UIScrollView+SVInfiniteScrolling.h"
 #import <WebKit/WebKit.h>
 #import "MainViewController.h"
+#import "ProfileViewController.h"
 
 @interface TweetsViewController ()
 @property (weak, nonatomic) IBOutlet UITableView *tableView;
@@ -584,4 +585,11 @@
 }
 
 
+-(void) textCell:(TextCell *)textCell userProfileTapped:(UIButton *)button {
+    NSIndexPath *indexPath = [self.tableView indexPathForCell:textCell];
+    Tweet *tweet = self.tweets[indexPath.row];
+    ProfileViewController *pvc = [[ProfileViewController alloc] init];
+    pvc.tweet = tweet;
+    [self presentViewController:pvc animated:YES completion:nil];
+}
 @end
