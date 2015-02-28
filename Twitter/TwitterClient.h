@@ -19,6 +19,6 @@
 -(void)unFavoriteWithParams:(NSDictionary*) params completion:(void (^)(NSError *error))completion;
 -(void)retweetWithParams:(NSDictionary*) params completion:(void (^)(NSError *error))completion;
 -(void) tweetWithParams:(NSDictionary*) params completion:(void (^)(Tweet *tweet, NSError *error)) completion;
-
+-(void)userTimelineWithParams:(NSDictionary*) params completion:(void (^)(NSArray *tweets, NSError *error))completion;
 
 @end

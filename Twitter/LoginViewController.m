@@ -9,6 +9,9 @@
 #import "LoginViewController.h"
 #import "TwitterClient.h"
 #import "TweetsViewController.h"
+#import "SideMenuViewController.h"
+#import "MainViewController.h"
+
 @interface LoginViewController ()
 
 @end
@@ -31,8 +34,13 @@
         NSLog(@"In login view controller : %@", user.name);
         if(user != nil){
             TweetsViewController *tvc = [[TweetsViewController alloc] init];
-            UINavigationController *nvc = [[UINavigationController alloc] initWithRootViewController:tvc];
-            [self presentViewController:nvc animated:YES completion:nil];
+            SideMenuViewController *svc = [[SideMenuViewController alloc] init];
+            MainViewController *mvc = [[MainViewController alloc] init];
+            svc.delegate = mvc;
+            mvc.viewControllers = @[tvc,svc];
+            UINavigationController *snvc = [[UINavigationController alloc] initWithRootViewController:mvc];
+            
+            [self presentViewController:snvc animated:YES completion:nil];
         } else {
             
         }

@@ -589,7 +589,7 @@
     NSIndexPath *indexPath = [self.tableView indexPathForCell:textCell];
     Tweet *tweet = self.tweets[indexPath.row];
     ProfileViewController *pvc = [[ProfileViewController alloc] init];
-    pvc.tweet = tweet;
-    [self presentViewController:pvc animated:YES completion:nil];
+    pvc.user = tweet.user;
+    [self.navigationController pushViewController:pvc animated:YES];
 }
 @end

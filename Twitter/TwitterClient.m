@@ -75,6 +75,19 @@ NSString *const baseUrl = @"https://api.twitter.com";
         }];
 }
 
+-(void)userTimelineWithParams:(NSDictionary*) params completion:(void (^)(NSArray *tweets, NSError *error))completion {
+    
+    NSLog(@"%@", params);
+    [self GET:@"1.1/statuses/user_timeline.json" parameters:params success:^(AFHTTPRequestOperation *operation, id responseObject) {
+        NSArray *tweets = [Tweet tweetsFromArray:responseObject];
+        completion(tweets, nil);
+    } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
+        completion(nil,error);
+        NSLog(@"Failed to fetch timeline %@" , error);
+    }];
+}
+
+
 -(void)favoriteWithParams:(NSDictionary*) params completion:(void (^)(NSError *error))completion {
     
     NSLog(@"%@", params);
