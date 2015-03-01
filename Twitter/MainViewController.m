@@ -9,6 +9,8 @@
 #import "MainViewController.h"
 #import "SideMenuViewController.h"
 #import "POP/POP.h"
+#import "ProfileViewController.h"
+#import "TweetsViewController.h"
 
 NSString *const MenuOpened = @"MenuOpened";
 NSString *const MenuClosed = @"MenuClosed";
@@ -111,6 +113,60 @@ NSString *const MenuClosed = @"MenuClosed";
     [self reset:0];
     self.menuOpen = NO;
     [[NSNotificationCenter defaultCenter] postNotificationName:MenuClosed object:nil];
+
+    
+//    [UIView animateWithDuration:0.1 animations:^{
+//        [self.currentViewController removeFromParentViewController];
+//        [self.currentViewController.view removeFromSuperview];
+//        
+//        if(index == 0){
+//            TweetsViewController *tvc = [[TweetsViewController alloc] init];
+//            self.currentViewController = tvc;
+//        } else if(index == 1) {
+//            
+//        } else if(index == 2){
+//            ProfileViewController *pvc = [[ProfileViewController alloc] init];
+//            pvc.user = [User currentUser];
+//            self.currentViewController = pvc;
+//        }
+//        self.currentViewController.view.frame = self.contentView.frame;
+//        self.currentViewController.view.bounds = self.contentView.bounds;
+//        
+//        [self addChildViewController:self.currentViewController];
+//        [self.contentView addSubview:self.currentViewController.view];
+//        [self.currentViewController didMoveToParentViewController:self];
+//        
+//    }];
+    
+    
+
+    [self.currentViewController removeFromParentViewController];
+    [self.currentViewController.view removeFromSuperview];
+    if(index == 0){
+        TweetsViewController *tvc = [[TweetsViewController alloc] init];
+        self.currentViewController = tvc;
+    } else if(index == 1) {
+        
+    } else if(index == 2){
+        ProfileViewController *pvc = [[ProfileViewController alloc] init];
+        pvc.user = [User currentUser];
+        self.currentViewController = pvc;
+    }
+    
+    [self addChildViewController:self.currentViewController];
+    [self.contentView addSubview:self.currentViewController.view];
+    [self.currentViewController didMoveToParentViewController:self];
+    CGRect offscreenframe = self.contentView.frame;
+    offscreenframe.origin.x = 0;
+    self.currentViewController.view.frame = offscreenframe;
+    [UIView animateWithDuration:0.2 delay:0 usingSpringWithDamping:0.9 initialSpringVelocity:0.5 options:UIViewAnimationCurveLinear animations:^{
+        self.currentViewController.view.frame = self.contentView.frame;
+        self.currentViewController.view.bounds = self.contentView.bounds;
+    } completion:^(BOOL finished) {
+
+    }];
+ 
+    
     
 }
 - (IBAction)viewPanned:(UIPanGestureRecognizer *)sender {
