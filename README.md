@@ -1,7 +1,7 @@
 
 This is a basic twitter app to read and compose tweets the Twitter API.
 
-Time spent: 30
+Time spent: 30hrs
 
 ![Video Walkthrough](twitter_latest.gif)
 
@@ -25,3 +25,13 @@ Time spent: 30
    * User should be able to unretweet and unfavorite and should decrement the retweet and favorite count. - **Completed**
    * Replies should be prefixed with the username and the reply_id should be set when posting the tweet - **Completed**
    * User can load more tweets once they reach the bottom of the feed using infinite loading similar to the actual Twitter client. - **Completed**
+   
+
+###Cocoapods used 
+   * pod 'SVPullToRefresh'
+   * pod 'SVProgressHUD', '~> 1.1'
+   * pod 'AFNetworking'
+   * pod 'DateTools'
+   * pod 'pop', '~> 1.0'
+   * pod 'TTTAttributedLabel'
+   *pod 'BDBOAuth1Manager', '~> 1.5'
