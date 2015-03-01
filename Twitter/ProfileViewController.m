@@ -48,7 +48,9 @@
     headerView.name.text = self.user.name;
     headerView.screenName.text = [NSString stringWithFormat:@"@%@",self.user.screenName];
     headerView.info.text = self.user.tagline;
-
+    headerView.tweetCount.text = [self getFriendlyCount:self.user.tweetsCount];
+    headerView.followingCount.text = [self getFriendlyCount:self.user.friendsCount];
+    headerView.followersCount.text = [self getFriendlyCount:self.user.followersCount];
     [headerView.headerImageView setImageWithURL:[NSURL URLWithString:self.user.bkImageUrl]];
     [headerView.profileImageView setImageWithURL:[NSURL URLWithString:self.user.profileImageUrl]];
 
@@ -228,6 +230,18 @@
     return cell;
 }
 
+
+- (NSString *) getFriendlyCount:(NSInteger)count {
+    if (count >= 1000000) {
+        return [NSString stringWithFormat:@"%.1fM", (double)count / 1000000];
+    } else if (count >= 10000) {
+        return [NSString stringWithFormat:@"%.1fK", (double)count / 1000];
+    } else if (count >= 1000) {
+        return [NSString stringWithFormat:@"%ld,%ld", (long)count / 1000, (long)count % 1000];
+    } else {
+        return [NSString stringWithFormat:@"%ld", (long)count];
+    }
+}
 
 - (void)scrollViewDidScroll:(UIScrollView *)scrollView
 {
