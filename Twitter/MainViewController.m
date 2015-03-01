@@ -111,6 +111,7 @@ NSString *const MenuClosed = @"MenuClosed";
     [self reset:0];
     self.menuOpen = NO;
     [[NSNotificationCenter defaultCenter] postNotificationName:MenuClosed object:nil];
+    
 }
 - (IBAction)viewPanned:(UIPanGestureRecognizer *)sender {
     if(sender.state == UIGestureRecognizerStateEnded){

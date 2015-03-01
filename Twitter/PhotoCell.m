@@ -16,9 +16,10 @@
     self.mediaImageView.layer.cornerRadius = 5.0;
     self.retweetedLabel.hidden = YES;
     self.retweet.hidden = YES;
-    UITapGestureRecognizer *tapGesture = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(handleSingleTap:)];
+    UITapGestureRecognizer *tapGesture = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(handleSingleTap)];
     tapGesture.numberOfTapsRequired = 1;
-    [self.mediaImageView addGestureRecognizer:tapGesture];
+    self.userImageView.userInteractionEnabled = YES;
+    [self.userImageView addGestureRecognizer:tapGesture];
     self.tweetLabel.enabledTextCheckingTypes = NSTextCheckingTypeLink;
     
 }
@@ -30,8 +31,9 @@
 }
 
 
--(void) handleSingleTap:(id)imageView {
-    [self.delegate photoCell:self imageTapped:imageView];
+-(void) handleSingleTap {
+    NSLog(@"Locall tapped");
+    [self.delegate photoCell:self imageTapped:nil];
 }
 
 - (IBAction)reply:(id)sender {

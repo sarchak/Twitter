@@ -473,27 +473,27 @@
 }
 
 
--(void) photoCell:(PhotoCell *)photoCell imageTapped:(UIImageView *)imageView {
-    NSIndexPath *indexPath = [self.tableView indexPathForCell:photoCell];
-    Tweet *tweet = self.tweets[indexPath.row];
-    UIImageView *imgView = [[UIImageView alloc] init];
-
-    imgView.userInteractionEnabled = YES;
-    imgView.contentMode = UIViewContentModeScaleAspectFill;
-    [imgView setImageWithURL:[NSURL URLWithString:tweet.media.mediaUrl]];
-    [self.view addSubview:imgView];
-    self.popUpImageView = imgView;
-    UITapGestureRecognizer *tapGesture = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(handleTap:)];
-    tapGesture.numberOfTapsRequired = 1;
-    [imgView addGestureRecognizer:tapGesture];
-    
-    POPSpringAnimation *anim = [POPSpringAnimation animationWithPropertyNamed:kPOPViewFrame];
-    anim.toValue = [NSValue valueWithCGRect:self.tableView.frame];
-    anim.springSpeed = 10;
-    anim.springBounciness = 10;
-    [imgView pop_addAnimation:anim forKey:@"scale"];
-}
-
+//-(void) photoCell:(PhotoCell *)photoCell imageTapped:(UIImageView *)imageView {
+//    NSIndexPath *indexPath = [self.tableView indexPathForCell:photoCell];
+//    Tweet *tweet = self.tweets[indexPath.row];
+//    UIImageView *imgView = [[UIImageView alloc] init];
+//
+//    imgView.userInteractionEnabled = YES;
+//    imgView.contentMode = UIViewContentModeScaleAspectFill;
+//    [imgView setImageWithURL:[NSURL URLWithString:tweet.media.mediaUrl]];
+//    [self.view addSubview:imgView];
+//    self.popUpImageView = imgView;
+//    UITapGestureRecognizer *tapGesture = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(handleTap:)];
+//    tapGesture.numberOfTapsRequired = 1;
+//    [imgView addGestureRecognizer:tapGesture];
+//    
+//    POPSpringAnimation *anim = [POPSpringAnimation animationWithPropertyNamed:kPOPViewFrame];
+//    anim.toValue = [NSValue valueWithCGRect:self.tableView.frame];
+//    anim.springSpeed = 10;
+//    anim.springBounciness = 10;
+//    [imgView pop_addAnimation:anim forKey:@"scale"];
+//}
+//
 -(void) handleTap:(UIImageView*) imageView {
     [UIView animateWithDuration:0.5 animations:^{
         self.webView.alpha = 0;
@@ -587,6 +587,15 @@
 
 -(void) textCell:(TextCell *)textCell userProfileTapped:(UIButton *)button {
     NSIndexPath *indexPath = [self.tableView indexPathForCell:textCell];
+    Tweet *tweet = self.tweets[indexPath.row];
+    ProfileViewController *pvc = [[ProfileViewController alloc] init];
+    pvc.user = tweet.user;
+    [self.navigationController pushViewController:pvc animated:YES];
+}
+
+-(void) photoCell:(PhotoCell *)photoCell imageTapped:(UIImageView *)imageView{
+    NSLog(@"Photocell image tapped");
+    NSIndexPath *indexPath = [self.tableView indexPathForCell:photoCell];
     Tweet *tweet = self.tweets[indexPath.row];
     ProfileViewController *pvc = [[ProfileViewController alloc] init];
     pvc.user = tweet.user;
