@@ -19,13 +19,15 @@ NSString *const MenuClosed = @"MenuClosed";
 
 @property (weak, nonatomic) IBOutlet UIView *contentView;
 @property (assign, nonatomic) BOOL menuOpen;
+@property (assign, nonatomic) NSInteger currIndex;
 @end
 
 @implementation MainViewController
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    self.currentViewController = self.viewControllers[0];
+    self.currIndex = 0;
+    self.currentViewController = self.viewControllers[self.currIndex];
     [self addChildViewController:self.currentViewController];
     [self.contentView addSubview:self.currentViewController.view];
     [self.currentViewController didMoveToParentViewController:self];
@@ -39,7 +41,7 @@ NSString *const MenuClosed = @"MenuClosed";
     
     if(self.menuOpen ) {
         [self closeMenu];
-        [self reset:0];
+        [self reset: self.currIndex];
         
         NSLog(@"Menu notification close");
         [[NSNotificationCenter defaultCenter] postNotificationName:MenuClosed object:nil];
@@ -80,20 +82,30 @@ NSString *const MenuClosed = @"MenuClosed";
 
 
 -(void) closeMenu {
-    [UIView animateWithDuration:0.5 delay:1.0 usingSpringWithDamping:0.5 initialSpringVelocity:0.9 options:UIViewAnimationOptionTransitionFlipFromRight animations:^{
-        [self.currentViewController removeFromParentViewController];
-        [self.currentViewController.view removeFromSuperview];
-    } completion:^(BOOL finished) {
+//    [UIView animateWithDuration:0.2 delay:0 usingSpringWithDamping:0.9 initialSpringVelocity:0.3 options:UIViewAnimationOptionCurveEaseOut animations:^{
+//        [self.currentViewController removeFromParentViewController];
+//        [self.currentViewController.view removeFromSuperview];
+//    } completion:^(BOOL finished) {
+//        self.contentView.bounds = self.view.bounds;
+//        self.contentView.frame = self.view.bounds;
+//    }];
+    [self.currentViewController removeFromParentViewController];
+    [self.currentViewController.view removeFromSuperview];
+    
+    [UIView animateWithDuration:0.3 delay:0 usingSpringWithDamping:0.9 initialSpringVelocity:0.1 options:UIViewAnimationOptionTransitionFlipFromRight animations:^{
         self.contentView.bounds = self.view.bounds;
         self.contentView.frame = self.view.bounds;
+    } completion:^(BOOL finished) {
+        
     }];
+
     
 }
 
 
 
 -(void) reset: (NSInteger) index {
-    [UIView animateWithDuration:0.3 delay:0 usingSpringWithDamping:0.9 initialSpringVelocity:0.3 options:UIViewAnimationOptionTransitionFlipFromLeft animations:^{
+    [UIView animateWithDuration:0.2 delay:0 usingSpringWithDamping:0.9 initialSpringVelocity:0.1 options:UIViewAnimationOptionTransitionFlipFromRight animations:^{
         self.currentViewController = self.viewControllers[index];
         [self addChildViewController:self.currentViewController];
         [self.contentView addSubview:self.currentViewController.view];
@@ -110,64 +122,29 @@ NSString *const MenuClosed = @"MenuClosed";
 
 -(void)sideMenuViewController:(SideMenuViewController *)sideMenuController didSelectIndexPath:(NSInteger)index {
     [self closeMenu];
-    [self reset:0];
+    [self reset:index];
     self.menuOpen = NO;
     [[NSNotificationCenter defaultCenter] postNotificationName:MenuClosed object:nil];
-
-    
-//    [UIView animateWithDuration:0.1 animations:^{
-//        [self.currentViewController removeFromParentViewController];
-//        [self.currentViewController.view removeFromSuperview];
-//        
-//        if(index == 0){
-//            TweetsViewController *tvc = [[TweetsViewController alloc] init];
-//            self.currentViewController = tvc;
-//        } else if(index == 1) {
-//            
-//        } else if(index == 2){
-//            ProfileViewController *pvc = [[ProfileViewController alloc] init];
-//            pvc.user = [User currentUser];
-//            self.currentViewController = pvc;
-//        }
-//        self.currentViewController.view.frame = self.contentView.frame;
-//        self.currentViewController.view.bounds = self.contentView.bounds;
-//        
-//        [self addChildViewController:self.currentViewController];
-//        [self.contentView addSubview:self.currentViewController.view];
-//        [self.currentViewController didMoveToParentViewController:self];
-//        
-//    }];
-    
+    self.currIndex = index;
     
 
     [self.currentViewController removeFromParentViewController];
     [self.currentViewController.view removeFromSuperview];
-    if(index == 0){
-        TweetsViewController *tvc = [[TweetsViewController alloc] init];
-        self.currentViewController = tvc;
-    } else if(index == 1) {
-        
-    } else if(index == 2){
-        ProfileViewController *pvc = [[ProfileViewController alloc] init];
-        pvc.user = [User currentUser];
-        self.currentViewController = pvc;
-    }
+    self.currentViewController = self.viewControllers[index];
     
     [self addChildViewController:self.currentViewController];
     [self.contentView addSubview:self.currentViewController.view];
     [self.currentViewController didMoveToParentViewController:self];
-    CGRect offscreenframe = self.contentView.frame;
-    offscreenframe.origin.x = 0;
-    self.currentViewController.view.frame = offscreenframe;
-    [UIView animateWithDuration:0.2 delay:0 usingSpringWithDamping:0.9 initialSpringVelocity:0.5 options:UIViewAnimationCurveLinear animations:^{
-        self.currentViewController.view.frame = self.contentView.frame;
-        self.currentViewController.view.bounds = self.contentView.bounds;
-    } completion:^(BOOL finished) {
 
+    [UIView animateWithDuration:0.3 delay:0 usingSpringWithDamping:0.9 initialSpringVelocity:0.1 options:UIViewAnimationOptionTransitionFlipFromRight animations:^{
+        self.currentViewController.view.frame = self.contentView.frame;
+    } completion:^(BOOL finished) {
+        
     }];
- 
-    
-    
+
+//    self.currentViewController.view.bounds = self.contentView.bounds;
+
+//
 }
 - (IBAction)viewPanned:(UIPanGestureRecognizer *)sender {
     if(sender.state == UIGestureRecognizerStateEnded){

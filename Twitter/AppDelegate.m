@@ -15,6 +15,7 @@
 #import "SideMenuViewController.h"
 #import "MainViewController.h"
 #import "Chameleon.h"
+#import "ProfileViewController.h"
 
 @interface AppDelegate ()
 
@@ -38,9 +39,15 @@
     
     UINavigationController *snvc = [[UINavigationController alloc] initWithRootViewController:mvc];
     
+
+    
     
     if ([User currentUser] != nil){
-        mvc.viewControllers = @[tvc,svc];
+        ProfileViewController *pvc = [[ProfileViewController alloc] init];
+        pvc.user = [User currentUser];
+        [pvc.view layoutIfNeeded];
+        [pvc.view setNeedsDisplay];
+        mvc.viewControllers = @[tvc,pvc];
     } else {
         mvc.viewControllers = @[lvc,svc];
     }
