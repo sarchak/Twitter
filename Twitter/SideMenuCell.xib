@@ -13,24 +13,24 @@
                 <rect key="frame" x="0.0" y="0.0" width="320" height="43"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
-                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="KeD-VD-dCf">
-                        <rect key="frame" x="8" y="8" width="60" height="60"/>
-                        <constraints>
-                            <constraint firstAttribute="width" constant="60" id="aQA-sx-jmR"/>
-                            <constraint firstAttribute="height" constant="60" id="vJH-cI-CIY"/>
-                        </constraints>
-                    </imageView>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Home Timeline" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="YTM-5S-atH">
                         <rect key="frame" x="76" y="25" width="130" height="26"/>
                         <fontDescription key="fontDescription" name="Avenir-Roman" family="Avenir" pointSize="19"/>
                         <color key="textColor" red="0.95373175379999997" green="0.94898681969999998" blue="0.95847668789999996" alpha="1" colorSpace="calibratedRGB"/>
                         <nil key="highlightedColor"/>
                     </label>
+                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="at" translatesAutoresizingMaskIntoConstraints="NO" id="KeD-VD-dCf">
+                        <rect key="frame" x="8" y="18" width="40" height="40"/>
+                        <constraints>
+                            <constraint firstAttribute="width" constant="40" id="aQA-sx-jmR"/>
+                            <constraint firstAttribute="height" constant="40" id="vJH-cI-CIY"/>
+                        </constraints>
+                    </imageView>
                 </subviews>
                 <constraints>
-                    <constraint firstItem="KeD-VD-dCf" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="8" id="DBd-Rd-foy"/>
-                    <constraint firstItem="YTM-5S-atH" firstAttribute="leading" secondItem="KeD-VD-dCf" secondAttribute="trailing" constant="8" id="KC5-wu-QeJ"/>
-                    <constraint firstAttribute="bottom" secondItem="KeD-VD-dCf" secondAttribute="bottom" constant="9.5" id="Kif-kB-dh1"/>
+                    <constraint firstItem="KeD-VD-dCf" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="18" id="DBd-Rd-foy"/>
+                    <constraint firstItem="YTM-5S-atH" firstAttribute="leading" secondItem="KeD-VD-dCf" secondAttribute="trailing" constant="28" id="KC5-wu-QeJ"/>
+                    <constraint firstAttribute="bottom" secondItem="KeD-VD-dCf" secondAttribute="bottom" constant="20" id="Kif-kB-dh1"/>
                     <constraint firstItem="KeD-VD-dCf" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="8" id="dvW-eC-MTa"/>
                     <constraint firstItem="KeD-VD-dCf" firstAttribute="centerY" secondItem="YTM-5S-atH" secondAttribute="centerY" id="pQL-Ew-JbW"/>
                 </constraints>
@@ -42,4 +42,7 @@
             <point key="canvasLocation" x="433" y="404"/>
         </tableViewCell>
     </objects>
+    <resources>
+        <image name="at" width="90" height="90"/>
+    </resources>
 </document>

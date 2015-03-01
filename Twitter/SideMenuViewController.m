@@ -57,6 +57,13 @@
 -(UITableViewCell*) tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
         SideMenuCell *cell = [self.tableView dequeueReusableCellWithIdentifier:@"SideMenu"];
         cell.sideLabel.text = self.items[indexPath.row];
+        if(indexPath.row == 0){
+            cell.iconImageView.image = [UIImage imageNamed:@"home"];
+        } else if(indexPath.row == 1){
+            cell.iconImageView.image = [UIImage imageNamed:@"profile"];
+        } else {
+            cell.iconImageView.image = [UIImage imageNamed:@"at"];
+        }
         cell.selectionStyle = UITableViewCellSelectionStyleNone;
         return cell;
 //    }
