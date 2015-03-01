@@ -47,23 +47,35 @@ NSString *const MenuClosed = @"MenuClosed";
         [[NSNotificationCenter defaultCenter] postNotificationName:MenuClosed object:nil];
     } else {
         
+        SideMenuViewController *svc = [[SideMenuViewController alloc] init];
+        
+        svc.delegate = self;
         CGFloat xoffset = self.contentView.frame.size.width - 50;
-        [UIView animateWithDuration:0.1 delay:0 usingSpringWithDamping:0.9 initialSpringVelocity:0.3 options:UIViewAnimationOptionTransitionFlipFromLeft animations:^{
+        [UIView animateWithDuration:0.3 delay:0 usingSpringWithDamping:0.8 initialSpringVelocity:0.1 options:UIViewAnimationOptionTransitionFlipFromLeft animations:^{
             self.currentViewController.view.frame = CGRectMake(xoffset, 0, self.contentView.frame.size.width, self.contentView.frame.size.height);
-        } completion:^(BOOL finished) {
-            CGRect newframe = CGRectMake(0, 0, xoffset, self.contentView.frame.size.height);
-            SideMenuViewController *svc = [[SideMenuViewController alloc] init];
             
-            svc.delegate = self;
+            CGRect newframe = CGRectMake(0, 0, xoffset, self.contentView.frame.size.height);
             svc.view.frame = newframe;
             self.currentViewController = svc;
             [self addChildViewController:svc];
-            [self.view addSubview:svc.view];
+            [self.contentView addSubview:svc.view];
+            /* Try pop */
+            
+//            POPBasicAnimation *anim = [POPBasicAnimation animationWithPropertyNamed:kPOPViewAlpha];
+//            anim.timingFunction = [CAMediaTimingFunction functionWithName:kCAMediaTimingFunctionEaseInEaseOut];
+//            anim.fromValue = @(0.0);
+//            anim.toValue = @(1.0);
+//            [self.contentView pop_addAnimation:anim forKey:@"slide"];
+            
             [svc didMoveToParentViewController:self];
+
+        } completion:^(BOOL finished) {
             
         }];
+        
+        
         [[NSNotificationCenter defaultCenter] postNotificationName:MenuOpened object:nil];
-        NSLog(@"Menu notification open");
+//        NSLog(@"Menu notification open");
     }
     self.menuOpen = !self.menuOpen;
 }
