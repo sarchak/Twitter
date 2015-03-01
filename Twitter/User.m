@@ -14,7 +14,6 @@ NSString *const UserDidLoginNotification = @"UserDidLoginNotification";
 NSString *const UserDidLogoutNotification = @"UserDidLogoutNotification";
 
 @interface User()
-
 @property (nonatomic,strong) NSDictionary *dictionary;
 @end
 
@@ -42,6 +41,7 @@ NSString *const UserDidLogoutNotification = @"UserDidLogoutNotification";
 
 static User *_currentUser = nil;
 NSString * const kCurrentUser = @"kCurrentUser";
+NSString * const kAllUser = @"kAllUsers";
 +(User*) currentUser {
     if(_currentUser == nil){
        NSData *data =  [[NSUserDefaults standardUserDefaults] objectForKey:kCurrentUser];
@@ -59,8 +59,35 @@ NSString * const kCurrentUser = @"kCurrentUser";
         NSData *data = [NSJSONSerialization dataWithJSONObject:currentUser.dictionary options:0 error:NULL];
         [[NSUserDefaults standardUserDefaults] setObject:data forKey:kCurrentUser];
         [[NSUserDefaults standardUserDefaults] synchronize];
+        
+        NSMutableArray *allData = [[NSUserDefaults standardUserDefaults] objectForKey:kAllUser];
+        if(allData != nil){
+            [allData addObject:currentUser.dictionary];
+            NSData *data = [NSKeyedArchiver archivedDataWithRootObject:allData];
+            [[NSUserDefaults standardUserDefaults] setObject:data forKey:kAllUser];
+            [[NSUserDefaults standardUserDefaults] synchronize];
+        } else {
+            allData = [NSMutableArray array];
+            [allData addObject:currentUser.dictionary];
+            NSData *data = [NSKeyedArchiver archivedDataWithRootObject:allData];
+            [[NSUserDefaults standardUserDefaults] setObject:data forKey:kAllUser];
+            [[NSUserDefaults standardUserDefaults] synchronize];
+        }
     } else {
         [[NSUserDefaults standardUserDefaults] setObject:nil forKey:kCurrentUser];
     }
+}
+
++(NSArray*) allUsers {
+    NSMutableArray *users = [NSMutableArray array];
+    NSData *tData = [[NSUserDefaults standardUserDefaults] objectForKey:kAllUser];
+    NSArray *allData = [NSKeyedUnarchiver unarchiveObjectWithData:tData];
+    for(NSDictionary *data in allData){
+        if(data != nil){
+            User *tmp = [[User alloc] initWithDictionary:data];
+            [users addObject:tmp];
+        }
+    }
+    return users;
 }
 @end

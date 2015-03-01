@@ -16,6 +16,7 @@
 #import "MainViewController.h"
 #import "Chameleon.h"
 #import "ProfileViewController.h"
+#import "AccountsViewController.h"
 
 @interface AppDelegate ()
 
@@ -37,17 +38,16 @@
     MainViewController *mvc = [[MainViewController alloc] init];
     svc.delegate = mvc;
     
-    UINavigationController *snvc = [[UINavigationController alloc] initWithRootViewController:mvc];
-    
 
-    
     
     if ([User currentUser] != nil){
         ProfileViewController *pvc = [[ProfileViewController alloc] init];
         pvc.user = [User currentUser];
         [pvc.view layoutIfNeeded];
         [pvc.view setNeedsDisplay];
-        mvc.viewControllers = @[tvc,pvc];
+        TweetsViewController *mentionsvc = [[TweetsViewController alloc] init];
+        mentionsvc.mentionsTimeLine = YES;
+        mvc.viewControllers = @[tvc,pvc,mentionsvc];
     } else {
         mvc.viewControllers = @[lvc,svc];
     }
@@ -60,7 +60,7 @@
     [navBar setTintColor:[UIColor whiteColor]];
 
     
-    self.window.rootViewController = snvc;
+    self.window.rootViewController = [[UINavigationController alloc] initWithRootViewController:mvc];
     
 
     [self.window makeKeyAndVisible];

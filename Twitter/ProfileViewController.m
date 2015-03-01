@@ -69,12 +69,12 @@
     CGFloat height = headerView.name.intrinsicContentSize.height +
                     headerView.screenName.intrinsicContentSize.height +
                     headerView.info.intrinsicContentSize.height + headerView.tweetCount.intrinsicContentSize.height;
-    headerView.viewHeight.constant = height  +100;
+    headerView.viewHeight.constant = height  + 100;
     NSLog(@"Size is = %f", height);
     
     [self.tableView setParallaxHeaderView:headerView
                                      mode:VGParallaxHeaderModeFill
-                                   height:350];
+                                   height:320];
     self.headerView = headerView;
     
     [self fetchData:YES];

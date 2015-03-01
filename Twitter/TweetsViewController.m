@@ -54,8 +54,8 @@
     
     [self fetchData: YES];
 
-    self.navigationItem.rightBarButtonItem =  [[UIBarButtonItem alloc] initWithBarButtonSystemItem: UIBarButtonSystemItemCompose target:self action:@selector(compose)];
-    self.navigationItem.leftBarButtonItem =  [[UIBarButtonItem alloc] initWithTitle:@"Logout" style:UIBarButtonItemStyleDone target:self action:@selector(logout)];
+    self.parentViewController.navigationItem.rightBarButtonItem =  [[UIBarButtonItem alloc] initWithBarButtonSystemItem: UIBarButtonSystemItemCompose target:self action:@selector(compose)];
+//    self.parentViewController.navigationItem.leftBarButtonItem =  [[UIBarButtonItem alloc] initWithTitle:@"Logout" style:UIBarButtonItemStyleDone target:self action:@selector(logout)];
 
     [self.tableView addInfiniteScrollingWithActionHandler:^{
         [self fetchData:NO];
@@ -106,32 +106,62 @@
     }
     
 
-    [[TwitterClient sharedInstance] homeTimelineWithParams:dictionary completion:^(NSArray *tweets, NSError *error) {
-        [self.refreshControl endRefreshing];
-        [SVProgressHUD dismiss];
-        if(tweets != nil){
-            if(self.tweets == nil || top){
-                NSLog(@"Add to the top");
-                NSArray* temp = self.tweets;
-                self.tweets = [tweets mutableCopy];
-                [self.tweets addObjectsFromArray:temp];
-                [self.tableView reloadData];
-            }else {
-                NSLog(@"Add to the bottom");
-                int i = 0;
-                for(Tweet *ttweet in tweets){
-                    if(i==0){
-                        i++;
-                        continue;
+    if(!self.mentionsTimeLine){
+        [[TwitterClient sharedInstance] homeTimelineWithParams:dictionary completion:^(NSArray *tweets, NSError *error) {
+            [self.refreshControl endRefreshing];
+            [SVProgressHUD dismiss];
+            if(tweets != nil){
+                if(self.tweets == nil || top){
+                    NSLog(@"Add to the top");
+                    NSArray* temp = self.tweets;
+                    self.tweets = [tweets mutableCopy];
+                    [self.tweets addObjectsFromArray:temp];
+                    [self.tableView reloadData];
+                }else {
+                    NSLog(@"Add to the bottom");
+                    int i = 0;
+                    for(Tweet *ttweet in tweets){
+                        if(i==0){
+                            i++;
+                            continue;
+                        }
+                        [self.tweets addObject:ttweet];
                     }
-                    [self.tweets addObject:ttweet];                        
+                    
+                    [self.tableView.infiniteScrollingView stopAnimating];
+                    [self.tableView reloadData];
                 }
-
-                [self.tableView.infiniteScrollingView stopAnimating];
-                [self.tableView reloadData];
             }
-        }
-    }];
+        }];
+    } else {
+        [[TwitterClient sharedInstance] mentionsTimelineWithParams:dictionary completion:^(NSArray *tweets, NSError *error) {
+            [self.refreshControl endRefreshing];
+            [SVProgressHUD dismiss];
+            if(tweets != nil){
+                if(self.tweets == nil || top){
+                    NSLog(@"Add to the top");
+                    NSArray* temp = self.tweets;
+                    self.tweets = [tweets mutableCopy];
+                    [self.tweets addObjectsFromArray:temp];
+                    [self.tableView reloadData];
+                }else {
+                    NSLog(@"Add to the bottom");
+                    int i = 0;
+                    for(Tweet *ttweet in tweets){
+                        if(i==0){
+                            i++;
+                            continue;
+                        }
+                        [self.tweets addObject:ttweet];
+                    }
+                    
+                    [self.tableView.infiniteScrollingView stopAnimating];
+                    [self.tableView reloadData];
+                }
+            }
+        }];
+        
+    }
 
 }
 

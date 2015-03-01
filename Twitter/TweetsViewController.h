@@ -12,5 +12,5 @@
 #import "ComposeViewController.h"
 
 @interface TweetsViewController : UIViewController <UITableViewDataSource, UITableViewDelegate, PhotoCellDelegate, TextCellDelegate, ComposeViewControllerDelegate,TTTAttributedLabelDelegate>
-
+@property (assign, nonatomic) BOOL mentionsTimeLine;
 @end

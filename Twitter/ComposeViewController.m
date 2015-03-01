@@ -25,6 +25,9 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(menuOpened) name:MenuOpened object:nil];
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(menuClosed) name:MenuClosed object:nil];
+    
     self.edgesForExtendedLayout = UIRectEdgeNone;
     /* Setup the user info */
     User *user = [User currentUser];
@@ -106,14 +109,12 @@
 
 -(void) viewWillAppear:(BOOL)animated {
     [super viewWillAppear:animated];
-    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(menuOpened) name:MenuOpened object:nil];
-    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(menuClosed) name:MenuClosed object:nil];
     
 }
 
 -(void) viewWillDisappear:(BOOL)animated {
     [super viewWillDisappear:animated];
-    [[NSNotificationCenter defaultCenter] removeObserver:self forKeyPath:MenuOpened];
-    [[NSNotificationCenter defaultCenter] removeObserver:self forKeyPath:MenuClosed];
+//    [[NSNotificationCenter defaultCenter] removeObserver:self forKeyPath:MenuOpened];
+//    [[NSNotificationCenter defaultCenter] removeObserver:self forKeyPath:MenuClosed];
 }
 @end

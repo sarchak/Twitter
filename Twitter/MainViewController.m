@@ -33,8 +33,8 @@ NSString *const MenuClosed = @"MenuClosed";
     [self.currentViewController didMoveToParentViewController:self];
     self.edgesForExtendedLayout = UIRectEdgeNone;
     self.menuOpen = NO;
-    self.navigationItem.leftBarButtonItem =  [[UIBarButtonItem alloc] initWithTitle:@"Menu" style:UIBarButtonItemStyleDone target:self action:@selector(menu)];
-
+//    self.navigationItem.leftBarButtonItem =  [[UIBarButtonItem alloc] initWithTitle:@"Menu" style:UIBarButtonItemStyleDone target:self action:@selector(menu)];
+    self.title = @"Twitter";
     
 }
 -(void) menu {
@@ -55,11 +55,6 @@ NSString *const MenuClosed = @"MenuClosed";
             SideMenuViewController *svc = [[SideMenuViewController alloc] init];
             
             svc.delegate = self;
-            //            POPSpringAnimation *anim = [POPSpringAnimation animationWithPropertyNamed:kPOPLayerBounds];
-            //            anim.toValue = [NSValue valueWithCGRect:newframe];
-            //            anim.springBounciness = 100.0;
-            //
-            //            [svc.view.layer pop_addAnimation:anim forKey:@"slide"];
             svc.view.frame = newframe;
             self.currentViewController = svc;
             [self addChildViewController:svc];
@@ -95,6 +90,7 @@ NSString *const MenuClosed = @"MenuClosed";
     [UIView animateWithDuration:0.3 delay:0 usingSpringWithDamping:0.9 initialSpringVelocity:0.1 options:UIViewAnimationOptionTransitionFlipFromRight animations:^{
         self.contentView.bounds = self.view.bounds;
         self.contentView.frame = self.view.bounds;
+
     } completion:^(BOOL finished) {
         
     }];
@@ -112,8 +108,9 @@ NSString *const MenuClosed = @"MenuClosed";
         [self.currentViewController didMoveToParentViewController:self];
         self.currentViewController.view.frame = self.contentView.frame;
         self.currentViewController.view.bounds = self.contentView.bounds;
+
     } completion:^(BOOL finished) {
-        
+
     }];
     
     
@@ -121,6 +118,7 @@ NSString *const MenuClosed = @"MenuClosed";
 }
 
 -(void)sideMenuViewController:(SideMenuViewController *)sideMenuController didSelectIndexPath:(NSInteger)index {
+
     [self closeMenu];
     [self reset:index];
     self.menuOpen = NO;
@@ -139,10 +137,9 @@ NSString *const MenuClosed = @"MenuClosed";
     [UIView animateWithDuration:0.3 delay:0 usingSpringWithDamping:0.9 initialSpringVelocity:0.1 options:UIViewAnimationOptionTransitionFlipFromRight animations:^{
         self.currentViewController.view.frame = self.contentView.frame;
     } completion:^(BOOL finished) {
-        
+
     }];
 
-//    self.currentViewController.view.bounds = self.contentView.bounds;
 
 //
 }

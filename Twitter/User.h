@@ -24,5 +24,5 @@ extern NSString *const UserDidLogoutNotification;
 +(void) logOut;
 +(User*) currentUser;
 +(void) setCurrentUser:(User*) currentUser;
-
++(NSArray*) allUsers;
 @end

@@ -10,6 +10,10 @@
 #import "SideMenuCell.h"
 #import "POP/POP.h"
 #import "Chameleon.h"
+#import "ProfileCell.h"
+#import "User.h"
+#import "UIImageView+AFNetworking.h"
+
 
 @interface SideMenuViewController ()
 
@@ -25,13 +29,15 @@
     self.tableView.dataSource = self;
     self.tableView.rowHeight = UITableViewAutomaticDimension;
     self.tableView.estimatedRowHeight = 50;
-    self.items = @[@"Home",@"Profile"];
+    self.items = @[@"Home Timeline",@"Profile", @"Mentions Timeline"];
     [self.tableView registerNib:[UINib nibWithNibName:@"SideMenuCell" bundle:nil] forCellReuseIdentifier:@"SideMenu"];
+    [self.tableView registerNib:[UINib nibWithNibName:@"ProfileCell" bundle:nil] forCellReuseIdentifier:@"ProfileCell"];
 //    self.tableView.autoresizingMask = UIViewAutoresizingFlexibleWidth | UIViewAutoresizingFlexibleHeight;
 
     self.tableView.backgroundColor = [UIColor colorWithGradientStyle:UIGradientStyleLeftToRight
                                              withFrame:self.view.frame
                                              andColors:@[[UIColor flatBlueColor],[UIColor flatSkyBlueColor]]];
+    
 }
 
 
@@ -41,7 +47,6 @@
 }
 
 -(void) tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
-    
     [self.delegate sideMenuViewController:self didSelectIndexPath:indexPath.row];
 }
 
@@ -50,10 +55,11 @@
 }
 
 -(UITableViewCell*) tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
-    SideMenuCell *cell = [self.tableView dequeueReusableCellWithIdentifier:@"SideMenu"];
-    cell.sideLabel.text = self.items[indexPath.row];
-    
-    return cell;
+        SideMenuCell *cell = [self.tableView dequeueReusableCellWithIdentifier:@"SideMenu"];
+        cell.sideLabel.text = self.items[indexPath.row];
+        cell.selectionStyle = UITableViewCellSelectionStyleNone;
+        return cell;
+//    }
 }
 
 @end

@@ -51,8 +51,8 @@ NSString *const baseUrl = @"https://api.twitter.com";
             [self GET:@"1.1/account/verify_credentials.json" parameters:nil success:^(AFHTTPRequestOperation *operation, id responseObject) {
                 User *user = [[User alloc] initWithDictionary:responseObject];
                 NSLog(@"User name : %@", user.name);
-                self.loginCompletion(user,nil);
                 [User setCurrentUser:user];
+                self.loginCompletion(user,nil);
             } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
                 NSLog(@"Failure");
             }];
@@ -79,6 +79,18 @@ NSString *const baseUrl = @"https://api.twitter.com";
     
     NSLog(@"%@", params);
     [self GET:@"1.1/statuses/user_timeline.json" parameters:params success:^(AFHTTPRequestOperation *operation, id responseObject) {
+        NSArray *tweets = [Tweet tweetsFromArray:responseObject];
+        completion(tweets, nil);
+    } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
+        completion(nil,error);
+        NSLog(@"Failed to fetch timeline %@" , error);
+    }];
+}
+
+-(void)mentionsTimelineWithParams:(NSDictionary*) params completion:(void (^)(NSArray *tweets, NSError *error))completion {
+    
+    NSLog(@"%@", params);
+    [self GET:@"1.1/statuses/mentions_timeline.json" parameters:params success:^(AFHTTPRequestOperation *operation, id responseObject) {
         NSArray *tweets = [Tweet tweetsFromArray:responseObject];
         completion(tweets, nil);
     } failure:^(AFHTTPRequestOperation *operation, NSError *error) {

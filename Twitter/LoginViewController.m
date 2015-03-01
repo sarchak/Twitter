@@ -12,6 +12,7 @@
 #import "SideMenuViewController.h"
 #import "MainViewController.h"
 #import "ProfileViewController.h"
+#import "AccountsViewController.h"
 
 @interface LoginViewController ()
 
@@ -39,7 +40,10 @@
             MainViewController *mvc = [[MainViewController alloc] init];
             ProfileViewController *pvc = [[ProfileViewController alloc] init];
             pvc.user = user;
-            mvc.viewControllers = @[tvc,pvc];
+
+            TweetsViewController *mentionsvc = [[TweetsViewController alloc] init];
+            mentionsvc.mentionsTimeLine = YES;
+            mvc.viewControllers = @[tvc,pvc,mentionsvc];
             
             UINavigationController *snvc = [[UINavigationController alloc] initWithRootViewController:mvc];
             

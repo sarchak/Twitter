@@ -15,6 +15,7 @@
 - (void) loginWithCompletion:(void (^)(User *user, NSError *error))completion;
 
 -(void)homeTimelineWithParams:(NSDictionary*) params completion:(void (^)(NSArray *tweets, NSError *error))completion;
+-(void)mentionsTimelineWithParams:(NSDictionary*) params completion:(void (^)(NSArray *tweets, NSError *error))completion;
 -(void)favoriteWithParams:(NSDictionary*) params completion:(void (^)(NSError *error))completion ;
 -(void)unFavoriteWithParams:(NSDictionary*) params completion:(void (^)(NSError *error))completion;
 -(void)retweetWithParams:(NSDictionary*) params completion:(void (^)(NSError *error))completion;

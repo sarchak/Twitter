@@ -23,7 +23,7 @@
                     <color key="textColor" red="0.95373175379999997" green="0.94898681969999998" blue="0.95847668789999996" alpha="1" colorSpace="calibratedRGB"/>
                     <nil key="highlightedColor"/>
                 </label>
-                <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Twitter_logo_white_48.png" translatesAutoresizingMaskIntoConstraints="NO" id="T34-nF-JNm">
+                <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" image="Twitter_logo_white_48.png" translatesAutoresizingMaskIntoConstraints="NO" id="T34-nF-JNm">
                     <rect key="frame" x="216" y="75" width="48" height="48"/>
                 </imageView>
             </subviews>
