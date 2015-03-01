@@ -2,6 +2,7 @@ Twitter app with hamburger menu
 
 Time spent: 20hrs
 
+![Video Walkthrough](twitter_hamburger_1.gif)
 ![Video Walkthrough](twitter_hamburger.gif)
 
    - [x] Hamburger menu
